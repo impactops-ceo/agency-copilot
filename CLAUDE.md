@@ -66,6 +66,8 @@ both the questions to answer and the answers themselves.
 | Write a client report | (skill) | `new-report` |
 | Write a sales script | (skill) | `new-sales-script` |
 | Add a new avatar worksheet | (skill) | `new-avatar` |
+| Write direct-response ad copy | (skill) | `ad-copywriting` |
+| Run an on-site SEO audit | (skill) | `onsite-seo-audit` |
 
 ## Skills available
 
@@ -76,6 +78,11 @@ both the questions to answer and the answers themselves.
 | `new-report` | Draft a client report from that client's data | Recurring client updates |
 | `new-sales-script` | Draft a sales script in your voice, for a given offer/avatar | Building or refreshing sales assets |
 | `new-avatar` | Spin up a fresh avatar worksheet for a new ideal client | Adding an avatar or sub-niche |
+| `ad-copywriting` | Write DR ad copy in your voice, matched to an avatar's awareness level | Building or refreshing ads |
+| `onsite-seo-audit` | Prioritized on-site SEO audit of any site | Diagnosing a site for SEO |
+
+_More skills are being added (email & video-ad copy, landing/thank-you pages, VSL,
+competitor research, hiring, proposals, client audits). See `system-docs/skill-standard.md`._
 
 The skills live in `.skills/`. When the owner opens this repo in Claude Code,
 install them by copying each `.skills/<name>/` folder into `~/.claude/skills/`.
