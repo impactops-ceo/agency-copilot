@@ -1,0 +1,10 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Keep the structure, but agency owners' real data should NOT be committed to a
+# public template fork. If you publish this as a template, owners fork/download it
+# and fill it in their own private copy.
