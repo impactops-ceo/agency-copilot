@@ -1,5 +1,23 @@
 # Changelog
 
+## v0.2.0 — 2026-06-02
+
+Added the `system-docs/skill-standard.md` authoring bar (load real context, encode
+a named framework, capture the owner's own approach on first use) and a full
+library of agency-craft skills built to it:
+
+- **Copy:** `ad-copywriting`, `email-copywriting`, `video-ad-script`, `vsl-script`,
+  `blog-article`
+- **Creative:** `static-image-ad` (produces an on-brand SVG mockup + spec)
+- **Funnel pages:** `landing-page`, `thank-you-page`
+- **Research & audit:** `onsite-seo-audit` (2026 Core Web Vitals), `competitor-research`,
+  `client-audit`
+- **Ops & hiring:** `process-mapping`, `proposal-generation`, `job-description`,
+  `hiring-assignment`
+
+Registered all of them in `CLAUDE.md` (routing + skill registry). `new-sales-script`
+already covered sales scripts and was left as-is.
+
 ## v0.1.0 — 2026-06-02
 
 Initial build of **Agency Copilot** — a downloadable Claude Code workspace that
