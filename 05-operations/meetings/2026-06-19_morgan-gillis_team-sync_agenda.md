@@ -1,6 +1,7 @@
-# Team Sync — Agenda
+# Team Sync — Agenda (Morgan Gillis program)
 
 **Date:** 2026-06-19
+**Program:** Morgan Gillis
 **Attendees:** Jordan Armstrong, Fernando Torres
 **Built from:** last week's sync (coaching-call debrief + at-risk client review)
 
