@@ -38,8 +38,8 @@ confirm that everything so far is saved, then tell them exactly how to come back
 
 ## How this workspace is organized
 
-Six numbered layers, foundational to specific. Each has a `CONTEXT.md` that holds
-both the questions to answer and the answers themselves.
+Six numbered layers, foundational to specific, plus a product area. Each has a
+`CONTEXT.md` that holds both the questions to answer and the answers themselves.
 
 | Folder | What lives here |
 |--------|-----------------|
@@ -49,6 +49,7 @@ both the questions to answer and the answers themselves.
 | `04-service-delivery/` | How you serve clients: onboarding, journey, active clients, reports |
 | `05-operations/` | How the business runs: team, roles, playbook, dashboards |
 | `06-financials/` | The numbers: P&L, acquisition cost, expenses, per-service margins |
+| `07-truthos/` | The product: TruthOS direction, the updates log, and trackers (deliverables, decisions, discussion, data) |
 
 ## Routing
 
@@ -62,6 +63,7 @@ both the questions to answer and the answers themselves.
 | Onboarding, client journey, a specific client, reports | `04-service-delivery/` | `CONTEXT.md` |
 | Team, roles, KPIs, SOPs, playbook, dashboards | `05-operations/` | `CONTEXT.md` |
 | Financials | `06-financials/` | `CONTEXT.md` |
+| TruthOS product: direction, sync updates, decisions, deliverables, due dates | `07-truthos/` | `CONTEXT.md` |
 | Add a new avatar worksheet | (skill) | `new-avatar` |
 | Write a new SOP | (skill) | `new-sop` |
 | Map a process | (skill) | `process-mapping` |
