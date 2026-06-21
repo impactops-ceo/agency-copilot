@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pricing · truthOS</title>
-  <meta name="description" content="A done-for-you hybrid. We build the platform and run the developers, you operate it. The core build, the two variants, the guarantee, and what's included." />
+  <title>Work with us · truthOS</title>
+  <meta name="description" content="Everyone starts with an audit. We find the software opportunity in your market, then build it with you. Apply to the Impact Incubator or the Visionary Impact Partnership." />
   <style>
 /* ============================================================
    truthOS marketing site
@@ -488,6 +488,73 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
 .footer ul a:hover { color: var(--text); }
 .footer-bot { display: flex; justify-content: space-between; align-items: center; gap: 16px; border-top: 1px solid var(--line); padding-top: 24px; font-size: 13.5px; color: var(--faint); flex-wrap: wrap; }
 
+/* ---------- Interactive command-center console ---------- */
+.console {
+  background: linear-gradient(180deg, var(--panel-2), var(--bg-1));
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: 0 40px 90px -40px rgba(0,0,0,0.8), var(--blue-glow);
+}
+.console-bar {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255,255,255,0.02);
+}
+.console-bar .dots { display: flex; gap: 7px; }
+.console-bar .dots i { width: 11px; height: 11px; border-radius: 50%; background: var(--panel-3); display: block; }
+.console-bar .title { font-size: 13px; color: var(--muted); margin-left: 6px; }
+.console-bar .live {
+  margin-left: auto; display: inline-flex; align-items: center; gap: 7px;
+  font-size: 12px; font-weight: 600; color: var(--good);
+}
+.console-bar .live .led { width: 7px; height: 7px; border-radius: 50%; background: var(--good); box-shadow: 0 0 9px var(--good); }
+.console-grid { display: grid; grid-template-columns: 214px 1fr; min-height: 430px; }
+.console-side {
+  border-right: 1px solid var(--line);
+  padding: 14px; display: flex; flex-direction: column; gap: 5px;
+  background: rgba(255,255,255,0.015);
+}
+.console-side .cc-btn {
+  display: flex; align-items: center; gap: 10px;
+  width: 100%; text-align: left; font-family: inherit; font-size: 13.5px; font-weight: 500;
+  color: var(--muted); background: transparent;
+  border: 1px solid transparent; border-radius: 10px;
+  padding: 10px 12px; cursor: pointer; transition: color .15s, background .15s, border-color .15s;
+}
+.console-side .cc-btn:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+.console-side .cc-btn.active { color: var(--text); background: var(--grad-soft); border-color: var(--line); }
+.console-side .cc-btn .gi { width: 18px; height: 18px; flex: none; color: var(--cyan); }
+.console-main { padding: 20px; position: relative; }
+.cc-panel { display: none; }
+.cc-panel.active { display: block; animation: ccfade .35s ease; }
+@keyframes ccfade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.cc-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 16px; }
+.cc-head h4 { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
+.cc-head .sub { font-size: 13px; color: var(--faint); margin-top: 3px; }
+.ai-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 500; color: var(--text);
+  background: var(--grad-soft); border: 1px solid var(--line);
+  padding: 8px 12px; border-radius: 12px; max-width: 300px; line-height: 1.35;
+}
+.ai-chip .d { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 8px var(--cyan); flex: none; }
+.ai-chip b { color: var(--cyan); font-weight: 700; }
+.console-ask {
+  display: flex; align-items: center; gap: 10px; margin-top: 16px;
+  border: 1px solid var(--line-2); border-radius: 12px;
+  padding: 12px 14px; background: var(--bg-1); color: var(--faint); font-size: 13.5px;
+}
+.console-ask svg { width: 16px; height: 16px; color: var(--cyan); flex: none; }
+.console-ask .k { margin-left: auto; font-size: 11px; color: var(--faint); border: 1px solid var(--line); border-radius: 6px; padding: 2px 7px; }
+@media (max-width: 720px) {
+  .console-grid { grid-template-columns: 1fr; min-height: 0; }
+  .console-side { flex-direction: row; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+  .console-side .cc-btn { white-space: nowrap; }
+  .console-side .cc-btn .label-long { display: none; }
+}
+
 /* ---------- Reveal animation ---------- */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.in { opacity: 1; transform: none; }
@@ -536,11 +603,10 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
         <a href="platform.html">The platform</a>
         <a href="who-its-for.html">Who it's for</a>
         <a href="proof.html">Proof</a>
-        <a href="pricing.html" class="active">Pricing</a>
-        <a href="about.html">About</a>
+        <a href="about.html">Our truth</a>
       </nav>
       <div class="nav-cta">
-        <a class="btn btn-ghost" href="pricing.html">See pricing</a>
+        <a class="btn btn-ghost" href="pricing.html">Work with us</a>
         <a class="btn btn-primary" href="book-a-call.html">Book a call</a>
         <button class="nav-toggle" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
       </div>
@@ -549,107 +615,108 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
 
   <main>
 
+    <!-- HERO -->
     <section class="hero">
       <div class="wrap">
-        <span class="eyebrow">Pricing</span>
-        <h1>Done for you. You don't have to run a software company.</h1>
-        <p class="lead">We build the white-labeled platform and run the developers as your fractional AI department. You operate it. Don't choose software or high-ticket. Do both.</p>
+        <span class="eyebrow">Work with us</span>
+        <h1>Everyone starts with an audit.</h1>
+        <p class="lead">We don't sell you software. We find the opportunity in your market, then build it with you. The first step is an audit of where AI and a productized platform move your business.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href="book-a-call.html">Start with an audit <span class="arrow">&rarr;</span></a>
+          <a class="btn btn-ghost btn-lg" href="platform.html">See the platform</a>
+        </div>
       </div>
     </section>
 
-    <!-- CORE OFFER -->
+    <!-- THE AUDIT -->
     <section class="section-sm">
       <div class="wrap">
-        <div class="price-grid">
-          <div class="price feature">
-            <div class="name">The core build</div>
-            <div class="amt">$25,000 <span>over six months</span></div>
-            <p class="sub">$10,000 up front, then $3,000 a month for five months. After that, $3,000 a month ongoing as your fractional AI department.</p>
-            <div class="divider"></div>
-            <ul>
-              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> White-labeled platform on your own domain</li>
-              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> AI trained on your content and voice</li>
-              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> The dynamic client journey and founder AI</li>
-              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> We run the developers, ongoing</li>
-            </ul>
-            <a class="btn btn-primary" href="book-a-call.html">Book a call <span class="arrow">&rarr;</span></a>
+        <div class="split">
+          <div class="split-text">
+            <span class="eyebrow">Start here</span>
+            <h2>The AI readiness audit.</h2>
+            <p>We map your operations, your genius, and the software opportunity in your niche. You leave knowing exactly what to productize, what to integrate, and how truthOS would run your business.</p>
+            <p>Like we did with Royalty Hero. We evaluated the market, picked the most lucrative product to own, an all-in-one book writing and promotion tool, and built CoAuthor AI.</p>
+            <div style="margin-top:26px"><a class="btn btn-primary" href="book-a-call.html">Book your audit <span class="arrow">&rarr;</span></a></div>
           </div>
-
-          <div class="price">
-            <div class="name">Two delivery variants</div>
-            <div class="amt" style="font-size:28px">Same build, your shape</div>
-            <p class="sub">Configured for how your business actually runs.</p>
-            <div class="divider"></div>
-            <ul>
-              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> <b style="color:var(--text)">The dashboard</b>, for agency owners running a client roster</li>
-              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> <b style="color:var(--text)">The member portal</b>, for coaches and communities</li>
-              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Both sit on the same org data layer and command centers</li>
-            </ul>
-            <a class="btn btn-ghost" href="platform.html">See the platform <span class="arrow">&rarr;</span></a>
+          <div class="reveal">
+            <div class="mock">
+              <div class="mock-bar"><span class="dots"><i></i><i></i><i></i></span><span class="title">The opportunity audit</span></div>
+              <div class="mock-body">
+                <div class="feed">
+                  <div class="row"><span class="badge">1</span><span class="grow">Scan your market for the missing software</span></div>
+                  <div class="row"><span class="badge">2</span><span class="grow">Pick the most lucrative product to own</span></div>
+                  <div class="row"><span class="badge now">3</span><span class="grow">Map the build and the recurring revenue layer</span></div>
+                  <div class="row"><span class="badge">4</span><span class="grow">Vertically integrate it into truthOS, your brand</span></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- WHAT'S INCLUDED -->
-    <section class="section-sm">
+    <!-- WHAT YOU GET -->
+    <section class="section">
       <div class="wrap">
-        <div class="section-head"><span class="eyebrow">What's included</span><h2>Everything to launch and keep winning.</h2></div>
+        <div class="section-head"><span class="eyebrow">What you get</span><h2>Product-led coaching. Productize your business.</h2><p class="lead">A custom course or coaching product, white-labeled on your domain, with the founder AI inside it.</p></div>
         <div class="include">
           <ul class="include-grid">
-            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> White-labeled platform on your own domain</li>
-            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> AI trained on your content and voice</li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> A custom course or coaching product on your own domain</li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> The founder AI, trained on your content and voice</li>
             <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Client goal and progress tracking</li>
             <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> An indexed content library</li>
             <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> The AI note-taker</li>
             <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> The dynamic client journey</li>
             <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> A member directory</li>
-            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> 30 days of post-launch support</li>
-            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> A front-end AI knowledge-base product to launch right away</li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Client portals with login, progress and next step</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- GUARANTEE -->
+    <!-- WALK BEFORE WE FLY -->
     <section class="section-sm">
       <div class="wrap">
-        <div class="guarantee reveal">
-          <div class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <div>
-            <h3>The 60-day guarantee</h3>
-            <p>By the end of phase one your platform is live, the AI answers in your voice, and your clients are using it. If not, we keep working at no extra cost until it is. There's a 60-day window: part as friends and keep what's built if it isn't a fit.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- LOW TICKET FUNNEL -->
-    <section class="section-sm">
-      <div class="wrap">
-        <div class="section-head"><span class="eyebrow">Start small</span><h2>Or start at the front door.</h2><p class="lead">A low-ticket path to see the value before the build.</p></div>
+        <div class="section-head"><span class="eyebrow">Start at the front door</span><h2>Walk before we fly.</h2><p class="lead">A simple path from a first look to your platform going live.</p></div>
         <div class="funnel">
-          <div class="fstep reveal"><div class="price-tag">$7</div><div class="lbl">AI product audit</div></div>
-          <div class="fstep reveal"><div class="price-tag">$27</div><div class="lbl">Self-serve database</div></div>
-          <div class="fstep reveal"><div class="price-tag">$97</div><div class="lbl">Audit build</div></div>
-          <div class="fstep reveal"><div class="price-tag gradient-text">$25k</div><div class="lbl">The full build, plus $3k/mo ongoing</div></div>
+          <div class="fstep reveal"><div class="num">Step 1</div><h3 style="margin:10px 0 6px; font-size:18px">AI readiness assessment</h3><div class="lbl">See where you stand and what to productize.</div></div>
+          <div class="fstep reveal"><div class="num">Step 2</div><h3 style="margin:10px 0 6px; font-size:18px">The setup guide</h3><div class="lbl">Connect your business to the truthOS platform.</div></div>
+          <div class="fstep reveal"><div class="num">Step 3</div><h3 style="margin:10px 0 6px; font-size:18px">The platform goes live</h3><div class="lbl">Your command centers come online, with a call to review your AI readiness audit.</div></div>
+          <div class="fstep reveal"><div class="num gradient-text">Step 4</div><h3 style="margin:10px 0 6px; font-size:18px">Build with us</h3><div class="lbl">Apply to a partnership and we build truthOS out for you.</div></div>
         </div>
       </div>
     </section>
 
-    <!-- ENTERPRISE -->
-    <section class="section-sm">
+    <!-- PARTNERSHIPS -->
+    <section class="section">
       <div class="wrap">
-        <!-- CONFIRM BEFORE PUBLISHING: enterprise/partnership pricing (higher monthly
-             vs profit-and-revenue-plus-equity) is pending Jordan's sign-off. See
-             brief section 11 and website/README.md. Kept as "talk to us." -->
-        <div class="card reveal" style="display:flex; gap:28px; align-items:center; flex-wrap:wrap; justify-content:space-between">
-          <div style="max-width:60ch">
-            <span class="num">Enterprise and partnership</span>
-            <h3 style="margin-top:10px">For the biggest names.</h3>
-            <p>A build fee plus a partnership tier: a higher monthly, or a profit-and-revenue share with equity. A tech partner with the dev velocity to match your ideas, building a white-labeled OS in your brand with a path to exit.</p>
+        <div class="section-head center mx-auto"><span class="eyebrow">Build with us</span><h2>Two ways to partner.</h2><p class="lead mx-auto maxw-680">For founders ready to vertically integrate software into their business. Both are application only.</p></div>
+        <div class="grid grid-2">
+          <div class="price reveal">
+            <div class="name">The Impact Incubator</div>
+            <div class="amt" style="font-size:26px; margin-top:12px">Apply for a scholarship</div>
+            <p class="sub">We evaluate the opportunity to vertically integrate software in your market, then build truthOS out for selected founders. Partners are grandfathered into a profit-share as it grows.</p>
+            <div class="divider"></div>
+            <ul>
+              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> An audit of the software opportunity in your niche</li>
+              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> We build the platform and founder AI on your brand</li>
+              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> A long-term profit-share partnership</li>
+            </ul>
+            <a class="btn btn-ghost" href="book-a-call.html">Apply to the Incubator <span class="arrow">&rarr;</span></a>
           </div>
-          <a class="btn btn-primary btn-lg" href="book-a-call.html">Talk to us <span class="arrow">&rarr;</span></a>
+          <div class="price feature reveal">
+            <div class="name">Visionary Impact Partnership</div>
+            <div class="amt" style="font-size:26px; margin-top:12px">For the biggest names</div>
+            <p class="sub">An equity partnership. We build your truthOS over six months, then either train your team to run it or run it for you. A tech partner with the dev velocity to match your ideas.</p>
+            <div class="divider"></div>
+            <ul>
+              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> A white-labeled OS in your brand, built in six months</li>
+              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> We train your team to run it, or run it for you</li>
+              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> An equity partnership with a path to exit</li>
+            </ul>
+            <a class="btn btn-primary" href="book-a-call.html">Apply for VIP <span class="arrow">&rarr;</span></a>
+          </div>
         </div>
       </div>
     </section>
@@ -657,8 +724,8 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
     <section class="section">
       <div class="wrap">
         <div class="cta-band reveal">
-          <h2>Build the platform you wished existed.</h2>
-          <p>We build it and run the developers. You operate it. Book a call to scope your build.</p>
+          <h2>Start with an audit.</h2>
+          <p>One call to see the opportunity in your market and how truthOS would run your business.</p>
           <a class="btn btn-primary btn-lg" href="book-a-call.html">Book a call <span class="arrow">&rarr;</span></a>
         </div>
       </div>
@@ -673,9 +740,9 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
           <a class="brand" href="index.html"><span class="dot"></span>truth<b class="gradient-text">OS</b></a>
           <p class="blurb">truthOS enforces truth across your business, eliciting the flywheel of trust.</p>
         </div>
-        <div><h5>Product</h5><ul><li><a href="platform.html">The platform</a></li><li><a href="platform.html#command-centers">Command centers</a></li><li><a href="platform.html#founder-ai">Founder AI</a></li><li><a href="pricing.html">Pricing</a></li></ul></div>
-        <div><h5>Company</h5><ul><li><a href="who-its-for.html">Who it's for</a></li><li><a href="proof.html">Proof</a></li><li><a href="about.html">About</a></li><li><a href="book-a-call.html">Book a call</a></li></ul></div>
-        <div><h5>Get started</h5><ul><li><a href="book-a-call.html">Apply</a></li><li><a href="mailto:hello@truthos.io">Contact</a></li></ul></div>
+        <div><h5>Product</h5><ul><li><a href="platform.html">The platform</a></li><li><a href="platform.html#command-centers">Command centers</a></li><li><a href="platform.html#founder-ai">Founder AI</a></li><li><a href="pricing.html">Work with us</a></li></ul></div>
+        <div><h5>Company</h5><ul><li><a href="who-its-for.html">Who it's for</a></li><li><a href="proof.html">Proof</a></li><li><a href="about.html">Our truth</a></li><li><a href="book-a-call.html">Book a call</a></li></ul></div>
+        <div><h5>Get started</h5><ul><li><a href="pricing.html">Start with an audit</a></li><li><a href="book-a-call.html">Apply</a></li><li><a href="mailto:hello@truthos.io">Contact</a></li></ul></div>
       </div>
       <div class="footer-bot">
         <span>&copy; <span data-year>2026</span> truthOS by Impact Ops. All rights reserved.</span>
@@ -730,6 +797,21 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
   // Footer year
   var y = document.querySelector("[data-year]");
   if (y) y.textContent = new Date().getFullYear();
+
+  // Interactive command-center console: click a center to switch the dashboard
+  document.querySelectorAll(".console").forEach(function (con) {
+    var btns = con.querySelectorAll(".cc-btn");
+    var panels = con.querySelectorAll(".cc-panel");
+    btns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var key = btn.getAttribute("data-cc");
+        btns.forEach(function (b) { b.classList.toggle("active", b === btn); });
+        panels.forEach(function (p) {
+          p.classList.toggle("active", p.getAttribute("data-cc") === key);
+        });
+      });
+    });
+  });
 
   // Apply form: friendly no-backend handler
   var form = document.querySelector("form[data-apply]");

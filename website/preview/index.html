@@ -488,6 +488,73 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
 .footer ul a:hover { color: var(--text); }
 .footer-bot { display: flex; justify-content: space-between; align-items: center; gap: 16px; border-top: 1px solid var(--line); padding-top: 24px; font-size: 13.5px; color: var(--faint); flex-wrap: wrap; }
 
+/* ---------- Interactive command-center console ---------- */
+.console {
+  background: linear-gradient(180deg, var(--panel-2), var(--bg-1));
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: 0 40px 90px -40px rgba(0,0,0,0.8), var(--blue-glow);
+}
+.console-bar {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255,255,255,0.02);
+}
+.console-bar .dots { display: flex; gap: 7px; }
+.console-bar .dots i { width: 11px; height: 11px; border-radius: 50%; background: var(--panel-3); display: block; }
+.console-bar .title { font-size: 13px; color: var(--muted); margin-left: 6px; }
+.console-bar .live {
+  margin-left: auto; display: inline-flex; align-items: center; gap: 7px;
+  font-size: 12px; font-weight: 600; color: var(--good);
+}
+.console-bar .live .led { width: 7px; height: 7px; border-radius: 50%; background: var(--good); box-shadow: 0 0 9px var(--good); }
+.console-grid { display: grid; grid-template-columns: 214px 1fr; min-height: 430px; }
+.console-side {
+  border-right: 1px solid var(--line);
+  padding: 14px; display: flex; flex-direction: column; gap: 5px;
+  background: rgba(255,255,255,0.015);
+}
+.console-side .cc-btn {
+  display: flex; align-items: center; gap: 10px;
+  width: 100%; text-align: left; font-family: inherit; font-size: 13.5px; font-weight: 500;
+  color: var(--muted); background: transparent;
+  border: 1px solid transparent; border-radius: 10px;
+  padding: 10px 12px; cursor: pointer; transition: color .15s, background .15s, border-color .15s;
+}
+.console-side .cc-btn:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+.console-side .cc-btn.active { color: var(--text); background: var(--grad-soft); border-color: var(--line); }
+.console-side .cc-btn .gi { width: 18px; height: 18px; flex: none; color: var(--cyan); }
+.console-main { padding: 20px; position: relative; }
+.cc-panel { display: none; }
+.cc-panel.active { display: block; animation: ccfade .35s ease; }
+@keyframes ccfade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.cc-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 16px; }
+.cc-head h4 { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
+.cc-head .sub { font-size: 13px; color: var(--faint); margin-top: 3px; }
+.ai-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 500; color: var(--text);
+  background: var(--grad-soft); border: 1px solid var(--line);
+  padding: 8px 12px; border-radius: 12px; max-width: 300px; line-height: 1.35;
+}
+.ai-chip .d { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 8px var(--cyan); flex: none; }
+.ai-chip b { color: var(--cyan); font-weight: 700; }
+.console-ask {
+  display: flex; align-items: center; gap: 10px; margin-top: 16px;
+  border: 1px solid var(--line-2); border-radius: 12px;
+  padding: 12px 14px; background: var(--bg-1); color: var(--faint); font-size: 13.5px;
+}
+.console-ask svg { width: 16px; height: 16px; color: var(--cyan); flex: none; }
+.console-ask .k { margin-left: auto; font-size: 11px; color: var(--faint); border: 1px solid var(--line); border-radius: 6px; padding: 2px 7px; }
+@media (max-width: 720px) {
+  .console-grid { grid-template-columns: 1fr; min-height: 0; }
+  .console-side { flex-direction: row; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+  .console-side .cc-btn { white-space: nowrap; }
+  .console-side .cc-btn .label-long { display: none; }
+}
+
 /* ---------- Reveal animation ---------- */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.in { opacity: 1; transform: none; }
@@ -537,11 +604,10 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
         <a href="platform.html">The platform</a>
         <a href="who-its-for.html">Who it's for</a>
         <a href="proof.html">Proof</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="about.html">About</a>
+        <a href="about.html">Our truth</a>
       </nav>
       <div class="nav-cta">
-        <a class="btn btn-ghost" href="pricing.html">See pricing</a>
+        <a class="btn btn-ghost" href="pricing.html">Work with us</a>
         <a class="btn btn-primary" href="book-a-call.html">Book a call</a>
         <button class="nav-toggle" aria-label="Menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -555,71 +621,189 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
     <!-- ===== HERO ===== -->
     <section class="hero">
       <div class="wrap">
-        <span class="pill"><span class="led"></span> Already running in production</span>
-        <h1 style="margin-top:22px">Built on <span class="gradient-text">truth, trust and transparency</span>.</h1>
+        <h1>Built on <span class="gradient-text">truth, trust and transparency</span>.</h1>
         <p class="lead">One place to run your coaching or agency business, with AI that helps you run it. truthOS pulls everything together, watches it for you, tells each person what to do next, and does a lot of the work itself.</p>
         <div class="hero-cta">
           <a class="btn btn-primary btn-lg" href="book-a-call.html">Book a call <span class="arrow">&rarr;</span></a>
           <a class="btn btn-ghost btn-lg" href="platform.html">See the platform</a>
         </div>
         <p class="hero-note">
-          <span class="pill">You can't scale what you don't trust</span>
-          <span>Done for you. We build the platform and run the developers. You operate it.</span>
+          <span class="pill">You won't scale what you don't trust</span>
         </p>
       </div>
     </section>
 
-    <!-- ===== HERO MOCKUP ===== -->
+    <!-- ===== INTERACTIVE COMMAND-CENTER CONSOLE ===== -->
     <section style="padding-bottom: 40px;">
       <div class="wrap reveal">
-        <div class="mock">
-          <div class="mock-bar">
+        <div class="console">
+          <div class="console-bar">
             <span class="dots"><i></i><i></i><i></i></span>
-            <span class="title">truthOS &middot; Operator command center</span>
+            <span class="title">truthOS &middot; command centers</span>
+            <span class="live"><span class="led"></span> Live</span>
           </div>
-          <div class="mock-body">
-            <div class="mock-grid">
-              <aside class="mock-side">
-                <span class="item on"><span class="d"></span> Operator</span>
-                <span class="item"><span class="d"></span> Client acquisition</span>
-                <span class="item"><span class="d"></span> Client success</span>
-                <span class="item"><span class="d"></span> Hiring</span>
-                <span class="item"><span class="d"></span> Project management</span>
-                <span class="item"><span class="d"></span> Financial</span>
-              </aside>
-              <div>
+          <div class="console-grid">
+            <aside class="console-side">
+              <button class="cc-btn active" data-cc="operator">
+                <svg class="gi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-2.82 1.17V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 8 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 14a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 8a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 10 3.09V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 2.82 1.17l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 20.91 10H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                Operator
+              </button>
+              <button class="cc-btn" data-cc="acquisition">
+                <svg class="gi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-7-7 18-2-7-9-4z"/></svg>
+                Client acquisition
+              </button>
+              <button class="cc-btn" data-cc="success">
+                <svg class="gi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Client success
+              </button>
+              <button class="cc-btn" data-cc="hiring">
+                <svg class="gi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+                Hiring
+              </button>
+              <button class="cc-btn" data-cc="projects">
+                <svg class="gi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                Project management
+              </button>
+              <button class="cc-btn" data-cc="financial">
+                <svg class="gi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                Financial
+              </button>
+            </aside>
+
+            <div class="console-main">
+              <!-- Operator -->
+              <div class="cc-panel active" data-cc="operator">
+                <div class="cc-head">
+                  <div><h4>Operator command center</h4><div class="sub">Run the whole business from one seat</div></div>
+                  <div class="ai-chip"><span class="d"></span> <span><b>Neo AI:</b> 4 things need you today. Start with the AFA renewal.</span></div>
+                </div>
                 <div class="stat-row">
                   <div class="stat-box"><div class="k">Cash collected</div><div class="v up">$214,800</div><div class="tiny">+18% vs last month</div></div>
                   <div class="stat-box"><div class="k">Active clients</div><div class="v">63</div><div class="tiny">4 need you today</div></div>
                   <div class="stat-box"><div class="k">Net retention</div><div class="v up">112%</div><div class="tiny">2 at risk, flagged early</div></div>
                 </div>
-                <div class="bars">
-                  <span class="b" style="height:42%"></span><span class="b" style="height:58%"></span>
-                  <span class="b" style="height:50%"></span><span class="b" style="height:71%"></span>
-                  <span class="b" style="height:64%"></span><span class="b" style="height:88%"></span>
-                  <span class="b" style="height:79%"></span><span class="b" style="height:96%"></span>
-                </div>
+                <div class="bars"><span class="b" style="height:42%"></span><span class="b" style="height:58%"></span><span class="b" style="height:50%"></span><span class="b" style="height:71%"></span><span class="b" style="height:64%"></span><span class="b" style="height:88%"></span><span class="b" style="height:79%"></span><span class="b" style="height:96%"></span></div>
                 <div class="feed" style="margin-top:16px">
-                  <div class="row"><span class="badge now">Do now</span><span class="grow">Renewal call with Eddie M. in 40 min. Founder AI drafted the agenda.</span></div>
+                  <div class="row"><span class="badge now">Do now</span><span class="grow">Renewal call with Eddie M. in 40 min. Neo AI drafted the agenda.</span></div>
                   <div class="row"><span class="badge">Flagged</span><span class="grow">Client usage down 3 weeks. Suggested check-in ready to send.</span></div>
-                  <div class="row"><span class="badge">Done</span><span class="grow">May report built and sent to 12 clients in one click.</span></div>
+                  <div class="row"><span class="badge">Done</span><span class="grow">May reports built and sent to 12 clients in one click.</span></div>
                 </div>
+                <div class="console-ask"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg> Ask Neo AI to build a report, draft an email, or make a payment link <span class="k">&#9166;</span></div>
+              </div>
+
+              <!-- Client acquisition -->
+              <div class="cc-panel" data-cc="acquisition">
+                <div class="cc-head">
+                  <div><h4>Client acquisition</h4><div class="sub">Turn calls into closes</div></div>
+                  <div class="ai-chip"><span class="d"></span> <span><b>Neo AI:</b> Route the Limitless lead to Cameron, he's closing 38% this week.</span></div>
+                </div>
+                <div class="stat-row">
+                  <div class="stat-box"><div class="k">New leads</div><div class="v">48</div><div class="tiny">this week</div></div>
+                  <div class="stat-box"><div class="k">Close rate</div><div class="v up">31%</div><div class="tiny">+6 pts after fixes</div></div>
+                  <div class="stat-box"><div class="k">Calls reviewed</div><div class="v">22</div><div class="tiny">objections logged</div></div>
+                </div>
+                <div class="feed">
+                  <div class="row"><span class="badge now">Do now</span><span class="grow">Demo with Gil at 2pm. Agenda and offer recap ready.</span></div>
+                  <div class="row"><span class="badge">Objection</span><span class="grow">"Price" came up on 5 calls. Reframe script drafted.</span></div>
+                  <div class="row"><span class="badge">Route</span><span class="grow">3 new leads routed to your top closer.</span></div>
+                  <div class="row"><span class="badge">Win</span><span class="grow">The demo sold the room at the last event.</span></div>
+                </div>
+                <div class="console-ask"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Ask Neo AI to review a call or build a follow-up sequence <span class="k">&#9166;</span></div>
+              </div>
+
+              <!-- Client success -->
+              <div class="cc-panel" data-cc="success">
+                <div class="cc-head">
+                  <div><h4>Client success</h4><div class="sub">Know who needs you today</div></div>
+                  <div class="ai-chip"><span class="d"></span> <span><b>Neo AI:</b> 2 clients slipping. Check-ins drafted in your voice.</span></div>
+                </div>
+                <div class="stat-row">
+                  <div class="stat-box"><div class="k">Avg health</div><div class="v up">86</div><div class="tiny">across 63 clients</div></div>
+                  <div class="stat-box"><div class="k">At risk</div><div class="v">2</div><div class="tiny">caught early</div></div>
+                  <div class="stat-box"><div class="k">Referrals</div><div class="v up">9</div><div class="tiny">from wins this month</div></div>
+                </div>
+                <div class="feed">
+                  <div class="row"><span class="badge now">Needs you</span><span class="grow">QBR with Royalty Hero today. Results recap built.</span></div>
+                  <div class="row"><span class="badge">At risk</span><span class="grow">Usage down 3 weeks. Outreach drafted, waiting to send.</span></div>
+                  <div class="row"><span class="badge">Win</span><span class="grow">Client hit a milestone. Turn it into a testimonial?</span></div>
+                </div>
+                <div class="console-ask"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Ask Neo AI who needs attention and why <span class="k">&#9166;</span></div>
+              </div>
+
+              <!-- Hiring -->
+              <div class="cc-panel" data-cc="hiring">
+                <div class="cc-head">
+                  <div><h4>Hiring</h4><div class="sub">Place trained operators</div></div>
+                  <div class="ai-chip"><span class="d"></span> <span><b>Neo AI:</b> 3 candidates passed the assignment. Top score: 92.</span></div>
+                </div>
+                <div class="stat-row">
+                  <div class="stat-box"><div class="k">Open roles</div><div class="v">2</div><div class="tiny">operator, CSM</div></div>
+                  <div class="stat-box"><div class="k">In pipeline</div><div class="v">14</div><div class="tiny">5 in final stage</div></div>
+                  <div class="stat-box"><div class="k">Avg score</div><div class="v up">78</div><div class="tiny">on the assignment</div></div>
+                </div>
+                <div class="feed">
+                  <div class="row"><span class="badge now">Do now</span><span class="grow">Final interview for the operator role at 4pm.</span></div>
+                  <div class="row"><span class="badge">Scored</span><span class="grow">Assignment graded: 92. Recommend advancing.</span></div>
+                  <div class="row"><span class="badge">Ready</span><span class="grow">Onboarding doc generated, fully documented to own the seat.</span></div>
+                </div>
+                <div class="console-ask"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Ask Neo AI to draft a role or score an assignment <span class="k">&#9166;</span></div>
+              </div>
+
+              <!-- Project management -->
+              <div class="cc-panel" data-cc="projects">
+                <div class="cc-head">
+                  <div><h4>Project management</h4><div class="sub">Every deliverable, owner and deadline</div></div>
+                  <div class="ai-chip"><span class="d"></span> <span><b>Neo AI:</b> 2 builds at risk of slipping. Rebalance suggested.</span></div>
+                </div>
+                <div class="stat-row">
+                  <div class="stat-box"><div class="k">On track</div><div class="v up">18</div><div class="tiny">of 22 active</div></div>
+                  <div class="stat-box"><div class="k">At risk</div><div class="v">2</div><div class="tiny">flagged early</div></div>
+                  <div class="stat-box"><div class="k">Shipped</div><div class="v up">11</div><div class="tiny">this week</div></div>
+                </div>
+                <div class="feed">
+                  <div class="row"><span class="badge now">Do now</span><span class="grow">Eddie portal build: design review due today.</span></div>
+                  <div class="row"><span class="badge">Blocked</span><span class="grow">Waiting on brand assets. Reminder drafted to the client.</span></div>
+                  <div class="row"><span class="badge">Shipped</span><span class="grow">CoAuthor v2 released to Royalty Hero.</span></div>
+                </div>
+                <div class="console-ask"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Ask Neo AI to rebalance the week or chase a blocker <span class="k">&#9166;</span></div>
+              </div>
+
+              <!-- Financial -->
+              <div class="cc-panel" data-cc="financial">
+                <div class="cc-head">
+                  <div><h4>Financial command center</h4><div class="sub">A live model, not a month-end surprise</div></div>
+                  <div class="ai-chip"><span class="d"></span> <span><b>Neo AI:</b> Margin up 4 pts. Cash runway sits at 14 months.</span></div>
+                </div>
+                <div class="stat-row">
+                  <div class="stat-box"><div class="k">MRR</div><div class="v up">$189,400</div><div class="tiny">+9% vs last month</div></div>
+                  <div class="stat-box"><div class="k">Gross margin</div><div class="v up">71%</div><div class="tiny">+4 pts</div></div>
+                  <div class="stat-box"><div class="k">Runway</div><div class="v">14 mo</div><div class="tiny">at current burn</div></div>
+                </div>
+                <div class="bars"><span class="b" style="height:55%"></span><span class="b" style="height:60%"></span><span class="b" style="height:58%"></span><span class="b" style="height:69%"></span><span class="b" style="height:74%"></span><span class="b" style="height:82%"></span><span class="b" style="height:90%"></span><span class="b" style="height:97%"></span></div>
+                <div class="feed" style="margin-top:16px">
+                  <div class="row"><span class="badge">Flagged</span><span class="grow">2 invoices overdue. Reminders drafted.</span></div>
+                  <div class="row"><span class="badge now">Open</span><span class="grow">The same numbers you run on are the ones your partners see.</span></div>
+                </div>
+                <div class="console-ask"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg> Ask Neo AI what the numbers mean and what to do <span class="k">&#9166;</span></div>
               </div>
             </div>
           </div>
         </div>
+        <p class="faint center" style="margin-top:16px; font-size:13.5px">Click any command center to explore it.</p>
       </div>
     </section>
 
-    <!-- ===== TRUST STRIP ===== -->
+    <!-- ===== CURRENT PARTNERS ===== -->
     <section class="section-sm">
       <div class="wrap center">
-        <p class="faint" style="margin-bottom:26px; font-size:14px; letter-spacing:0.08em; text-transform:uppercase;">Running real operations on truthOS</p>
+        <p class="faint" style="margin-bottom:26px; font-size:14px; letter-spacing:0.08em; text-transform:uppercase;">Current partners</p>
         <div class="logos">
           <span class="logo"><span class="mk"></span> Royalty Hero</span>
           <span class="logo"><span class="mk"></span> AFA</span>
           <span class="logo"><span class="mk"></span> Agency Operators</span>
           <span class="logo"><span class="mk"></span> Impact Ops</span>
+          <span class="logo"><span class="mk"></span> Selling to Closing</span>
+          <span class="logo"><span class="mk"></span> Mega Events</span>
         </div>
       </div>
     </section>
@@ -656,7 +840,7 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
     <section class="section-sm">
       <div class="wrap">
         <div class="statement reveal">
-          <p>Make the product so good it leads the business. One place to run from.</p>
+          <p>Make the product so good, growth is inevitable.</p>
         </div>
       </div>
     </section>
@@ -667,8 +851,8 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
         <div class="split">
           <div class="split-text">
             <span class="eyebrow">What it is</span>
-            <h2>A dashboard shows you the data. A command center moves you.</h2>
-            <p>truthOS reads the data, decides, and moves you to the next action with you. It's one place to run the whole business, with a founder AI inside it doing the work alongside your team.</p>
+            <h2>A dashboard shows you the data. A command center lets you use AI to act on it.</h2>
+            <p>truthOS reads the data and uses AI to take the next action with you. It's one place to run the whole business, with a founder AI inside it doing the work alongside your team.</p>
             <ul class="checklist">
               <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Puts everything in one place: calls, numbers, clients, your team's work, messages.</li>
               <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Tells you what needs you today, in order.</li>
@@ -682,7 +866,7 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
               <div class="mock-body">
                 <div class="feed">
                   <div class="row"><span class="badge">You</span><span class="grow">Which clients are slipping and what do I do about it?</span></div>
-                  <div class="row" style="align-items:flex-start"><span class="badge now">Founder AI</span><span class="grow">Three clients dropped usage this week. I drafted a check-in for each in your voice, with their last win referenced. Want me to send?</span></div>
+                  <div class="row" style="align-items:flex-start"><span class="badge now">Neo AI</span><span class="grow">Three clients dropped usage this week. I drafted a check-in for each in your voice, with their last win referenced. Want me to send?</span></div>
                   <div class="row"><span class="badge">Action</span><span class="grow">Send 3 check-ins &middot; Schedule 1 call &middot; Log to client journey</span></div>
                 </div>
               </div>
@@ -806,28 +990,32 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
       </div>
     </section>
 
-    <!-- ===== OFFER IN BRIEF ===== -->
+    <!-- ===== HOW WE WORK (vertical integration) ===== -->
     <section class="section">
       <div class="wrap">
         <div class="split rev">
           <div class="split-text">
-            <span class="eyebrow">The offer</span>
-            <h2>You don't have to run a software company. We are the dev team.</h2>
-            <p>truthOS is a done-for-you hybrid. We build the white-labeled platform on your domain, train the AI on your content and voice, and run the developers. You operate it.</p>
-            <p>Don't choose software or high-ticket. Do both.</p>
+            <span class="eyebrow">How we work</span>
+            <h2>We find the software your market is missing, and build it with you.</h2>
+            <p>Like Royalty Hero. We evaluated their market, picked the most lucrative product, an all-in-one book writing and promotion tool, and built CoAuthor AI. It added a recurring revenue layer with no paid ads.</p>
+            <p>You don't have to run a software company. We are the dev team.</p>
             <ul class="checklist">
-              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> White-labeled platform on your own domain.</li>
-              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> AI trained on your content and voice.</li>
-              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> We run the developers as your fractional AI department.</li>
+              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> We audit the opportunity to vertically integrate software in your niche.</li>
+              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> We build the platform and the founder AI on your brand.</li>
+              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> You operate it, or we run it with you.</li>
             </ul>
-            <div style="margin-top:28px"><a class="btn btn-primary" href="pricing.html">See pricing <span class="arrow">&rarr;</span></a></div>
+            <div style="margin-top:28px"><a class="btn btn-primary" href="pricing.html">Start with an audit <span class="arrow">&rarr;</span></a></div>
           </div>
           <div class="reveal">
-            <div class="guarantee" style="margin:0">
-              <div class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
-              <div>
-                <h3>The 60-day guarantee</h3>
-                <p>By the end of phase one your platform is live, the AI answers in your voice, and your clients are using it. If not, we keep working at no extra cost until it is.</p>
+            <div class="mock">
+              <div class="mock-bar"><span class="dots"><i></i><i></i><i></i></span><span class="title">The opportunity audit</span></div>
+              <div class="mock-body">
+                <div class="feed">
+                  <div class="row"><span class="badge">1</span><span class="grow">Scan your market for the missing software</span></div>
+                  <div class="row"><span class="badge">2</span><span class="grow">Pick the most lucrative product to own</span></div>
+                  <div class="row"><span class="badge now">3</span><span class="grow">Map the build and the recurring revenue layer</span></div>
+                  <div class="row"><span class="badge">4</span><span class="grow">Vertically integrate it into truthOS, your brand</span></div>
+                </div>
               </div>
             </div>
           </div>
@@ -840,7 +1028,7 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
       <div class="wrap">
         <div class="cta-band reveal">
           <span class="eyebrow" style="justify-content:center">Get started</span>
-          <h2>You can't scale what you don't trust.</h2>
+          <h2>You won't scale what you don't trust.</h2>
           <p>Book a call and see the platform that enforces truth across your business, so the trust that grows it compounds.</p>
           <a class="btn btn-primary btn-lg" href="book-a-call.html">Book a call <span class="arrow">&rarr;</span></a>
         </div>
@@ -863,7 +1051,7 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
             <li><a href="platform.html">The platform</a></li>
             <li><a href="platform.html#command-centers">Command centers</a></li>
             <li><a href="platform.html#founder-ai">Founder AI</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="pricing.html">Work with us</a></li>
           </ul>
         </div>
         <div>
@@ -871,13 +1059,14 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
           <ul>
             <li><a href="who-its-for.html">Who it's for</a></li>
             <li><a href="proof.html">Proof</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="about.html">Our truth</a></li>
             <li><a href="book-a-call.html">Book a call</a></li>
           </ul>
         </div>
         <div>
           <h5>Get started</h5>
           <ul>
+            <li><a href="pricing.html">Start with an audit</a></li>
             <li><a href="book-a-call.html">Apply</a></li>
             <li><a href="mailto:hello@truthos.io">Contact</a></li>
           </ul>
@@ -936,6 +1125,21 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
   // Footer year
   var y = document.querySelector("[data-year]");
   if (y) y.textContent = new Date().getFullYear();
+
+  // Interactive command-center console: click a center to switch the dashboard
+  document.querySelectorAll(".console").forEach(function (con) {
+    var btns = con.querySelectorAll(".cc-btn");
+    var panels = con.querySelectorAll(".cc-panel");
+    btns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var key = btn.getAttribute("data-cc");
+        btns.forEach(function (b) { b.classList.toggle("active", b === btn); });
+        panels.forEach(function (p) {
+          p.classList.toggle("active", p.getAttribute("data-cc") === key);
+        });
+      });
+    });
+  });
 
   // Apply form: friendly no-backend handler
   var form = document.querySelector("form[data-apply]");

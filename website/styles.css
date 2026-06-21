@@ -480,6 +480,73 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
 .footer ul a:hover { color: var(--text); }
 .footer-bot { display: flex; justify-content: space-between; align-items: center; gap: 16px; border-top: 1px solid var(--line); padding-top: 24px; font-size: 13.5px; color: var(--faint); flex-wrap: wrap; }
 
+/* ---------- Interactive command-center console ---------- */
+.console {
+  background: linear-gradient(180deg, var(--panel-2), var(--bg-1));
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: 0 40px 90px -40px rgba(0,0,0,0.8), var(--blue-glow);
+}
+.console-bar {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255,255,255,0.02);
+}
+.console-bar .dots { display: flex; gap: 7px; }
+.console-bar .dots i { width: 11px; height: 11px; border-radius: 50%; background: var(--panel-3); display: block; }
+.console-bar .title { font-size: 13px; color: var(--muted); margin-left: 6px; }
+.console-bar .live {
+  margin-left: auto; display: inline-flex; align-items: center; gap: 7px;
+  font-size: 12px; font-weight: 600; color: var(--good);
+}
+.console-bar .live .led { width: 7px; height: 7px; border-radius: 50%; background: var(--good); box-shadow: 0 0 9px var(--good); }
+.console-grid { display: grid; grid-template-columns: 214px 1fr; min-height: 430px; }
+.console-side {
+  border-right: 1px solid var(--line);
+  padding: 14px; display: flex; flex-direction: column; gap: 5px;
+  background: rgba(255,255,255,0.015);
+}
+.console-side .cc-btn {
+  display: flex; align-items: center; gap: 10px;
+  width: 100%; text-align: left; font-family: inherit; font-size: 13.5px; font-weight: 500;
+  color: var(--muted); background: transparent;
+  border: 1px solid transparent; border-radius: 10px;
+  padding: 10px 12px; cursor: pointer; transition: color .15s, background .15s, border-color .15s;
+}
+.console-side .cc-btn:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+.console-side .cc-btn.active { color: var(--text); background: var(--grad-soft); border-color: var(--line); }
+.console-side .cc-btn .gi { width: 18px; height: 18px; flex: none; color: var(--cyan); }
+.console-main { padding: 20px; position: relative; }
+.cc-panel { display: none; }
+.cc-panel.active { display: block; animation: ccfade .35s ease; }
+@keyframes ccfade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.cc-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 16px; }
+.cc-head h4 { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
+.cc-head .sub { font-size: 13px; color: var(--faint); margin-top: 3px; }
+.ai-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 500; color: var(--text);
+  background: var(--grad-soft); border: 1px solid var(--line);
+  padding: 8px 12px; border-radius: 12px; max-width: 300px; line-height: 1.35;
+}
+.ai-chip .d { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 8px var(--cyan); flex: none; }
+.ai-chip b { color: var(--cyan); font-weight: 700; }
+.console-ask {
+  display: flex; align-items: center; gap: 10px; margin-top: 16px;
+  border: 1px solid var(--line-2); border-radius: 12px;
+  padding: 12px 14px; background: var(--bg-1); color: var(--faint); font-size: 13.5px;
+}
+.console-ask svg { width: 16px; height: 16px; color: var(--cyan); flex: none; }
+.console-ask .k { margin-left: auto; font-size: 11px; color: var(--faint); border: 1px solid var(--line); border-radius: 6px; padding: 2px 7px; }
+@media (max-width: 720px) {
+  .console-grid { grid-template-columns: 1fr; min-height: 0; }
+  .console-side { flex-direction: row; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+  .console-side .cc-btn { white-space: nowrap; }
+  .console-side .cc-btn .label-long { display: none; }
+}
+
 /* ---------- Reveal animation ---------- */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.in { opacity: 1; transform: none; }

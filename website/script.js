@@ -44,6 +44,21 @@
   var y = document.querySelector("[data-year]");
   if (y) y.textContent = new Date().getFullYear();
 
+  // Interactive command-center console: click a center to switch the dashboard
+  document.querySelectorAll(".console").forEach(function (con) {
+    var btns = con.querySelectorAll(".cc-btn");
+    var panels = con.querySelectorAll(".cc-panel");
+    btns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var key = btn.getAttribute("data-cc");
+        btns.forEach(function (b) { b.classList.toggle("active", b === btn); });
+        panels.forEach(function (p) {
+          p.classList.toggle("active", p.getAttribute("data-cc") === key);
+        });
+      });
+    });
+  });
+
   // Apply form: friendly no-backend handler
   var form = document.querySelector("form[data-apply]");
   if (form) {
