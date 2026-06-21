@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a call · truthOS</title>
+  <meta name="description" content="Apply to build truthOS on your business. A short application, then a call. The demo sells the program." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html"><span class="dot"></span>truth<b class="gradient-text">OS</b></a>
+      <nav class="nav-links">
+        <a href="platform.html">The platform</a>
+        <a href="who-its-for.html">Who it's for</a>
+        <a href="proof.html">Proof</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="pricing.html">See pricing</a>
+        <a class="btn btn-primary" href="book-a-call.html">Book a call</a>
+        <button class="nav-toggle" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="wrap">
+        <div class="split">
+          <div class="split-text">
+            <span class="eyebrow">Book a call</span>
+            <h1 style="font-size:clamp(34px,5vw,52px)">See truthOS run on your business.</h1>
+            <p class="lead">A short application, then a call. The application mirrors how a client enters the platform, so we come to the call already understanding your business.</p>
+            <ul class="checklist" style="margin-top:28px">
+              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> A live demo, configured for your org type.</li>
+              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> A clear scope and the path to phase one live.</li>
+              <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> No pressure. The demo does the talking.</li>
+            </ul>
+            <p class="hero-note" style="margin-top:30px"><span class="pill"><span class="led"></span> Backed by the 60-day guarantee</span></p>
+          </div>
+
+          <div>
+            <form class="form" data-apply>
+              <div class="field">
+                <label for="name">Your name</label>
+                <input id="name" name="name" type="text" placeholder="Jordan Smith" required />
+              </div>
+              <div class="row2">
+                <div class="field">
+                  <label for="email">Work email</label>
+                  <input id="email" name="email" type="email" placeholder="you@company.com" required />
+                </div>
+                <div class="field">
+                  <label for="company">Company</label>
+                  <input id="company" name="company" type="text" placeholder="Company name" required />
+                </div>
+              </div>
+              <div class="row2">
+                <div class="field">
+                  <label for="type">Business type</label>
+                  <select id="type" name="type" required>
+                    <option value="" disabled selected>Choose one</option>
+                    <option>Coach or course creator</option>
+                    <option>Agency owner</option>
+                    <option>Expert with a personal brand</option>
+                    <option>Enterprise authority</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="revenue">Monthly revenue</label>
+                  <select id="revenue" name="revenue" required>
+                    <option value="" disabled selected>Choose one</option>
+                    <option>Under $30k / mo</option>
+                    <option>$30k to $100k / mo</option>
+                    <option>$100k to $500k / mo</option>
+                    <option>$500k+ / mo</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="goal">What's the bottleneck you want out of?</label>
+                <textarea id="goal" name="goal" placeholder="Tell us where the founder is the constraint right now."></textarea>
+              </div>
+              <button class="btn btn-primary btn-lg" type="submit" style="width:100%; justify-content:center">Apply and book a call <span class="arrow">&rarr;</span></button>
+              <p class="faint" style="font-size:13px; margin-top:14px; text-align:center">After you apply, you'll pick a time on the next screen.</p>
+
+              <div data-apply-done style="display:none; align-items:center; gap:12px; margin-top:22px; padding:16px; border:1px solid rgba(70,217,160,0.4); border-radius:14px; background:rgba(70,217,160,0.08)">
+                <span style="color:var(--good); flex:none"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></span>
+                <span style="font-size:15px">Thanks. Your application is in. Connect your calendar to lock a time, and we'll come ready.</span>
+              </div>
+            </form>
+            <!-- INTEGRATION NOTE: wire this form to your CRM/scheduler (Calendly,
+                 SavvyCal, or the truthOS intake) and a real backend before launch.
+                 Right now it confirms client-side only. See website/README.md. -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm">
+      <div class="wrap center">
+        <p class="faint" style="margin-bottom:24px; font-size:14px; letter-spacing:0.08em; text-transform:uppercase;">Already running real operations on truthOS</p>
+        <div class="logos">
+          <span class="logo"><span class="mk"></span> Royalty Hero</span>
+          <span class="logo"><span class="mk"></span> AFA</span>
+          <span class="logo"><span class="mk"></span> Agency Operators</span>
+          <span class="logo"><span class="mk"></span> Impact Ops</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <a class="brand" href="index.html"><span class="dot"></span>truth<b class="gradient-text">OS</b></a>
+          <p class="blurb">truthOS enforces truth across your business, eliciting the flywheel of trust.</p>
+        </div>
+        <div><h5>Product</h5><ul><li><a href="platform.html">The platform</a></li><li><a href="platform.html#command-centers">Command centers</a></li><li><a href="platform.html#founder-ai">Founder AI</a></li><li><a href="pricing.html">Pricing</a></li></ul></div>
+        <div><h5>Company</h5><ul><li><a href="who-its-for.html">Who it's for</a></li><li><a href="proof.html">Proof</a></li><li><a href="about.html">About</a></li><li><a href="book-a-call.html">Book a call</a></li></ul></div>
+        <div><h5>Get started</h5><ul><li><a href="book-a-call.html">Apply</a></li><li><a href="mailto:hello@truthos.io">Contact</a></li></ul></div>
+      </div>
+      <div class="footer-bot">
+        <span>&copy; <span data-year>2026</span> truthOS by Impact Ops. All rights reserved.</span>
+        <span>Built on truth, trust and transparency.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
