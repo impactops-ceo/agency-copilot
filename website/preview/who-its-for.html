@@ -272,6 +272,28 @@ a.role-chip:hover .cursor-ico { animation: none; transform: translate(1px, 1px);
 .console-ask svg { width: 16px; height: 16px; color: var(--cyan); flex: none; }
 .console-ask .k { margin-left: auto; font-size: 11px; color: var(--faint); border: 1px solid var(--line); border-radius: 6px; padding: 2px 7px; }
 
+/* ---------- Agentic layer demo (Tasklet-style) ---------- */
+.agent-demo { background: linear-gradient(180deg, var(--panel-2), var(--bg-1)); border: 1px solid var(--line-2); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow), var(--blue-glow); }
+.agent-tabs { display: flex; flex-wrap: wrap; gap: 8px; padding: 16px; border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.02); }
+.agent-tab { font-family: inherit; font-size: 13px; font-weight: 600; color: var(--muted); background: rgba(255,255,255,0.03); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; transition: color .15s, background .15s, border-color .15s; }
+.agent-tab:hover { color: var(--text); }
+.agent-tab.active { color: var(--text); background: var(--grad-soft); border-color: rgba(91,140,255,0.4); }
+.agent-body { padding: 22px; }
+.agent-panel { display: none; }
+.agent-panel.active { display: block; animation: ccfade .35s ease; }
+.agent-prompt { background: var(--panel); border: 1px solid var(--line-2); border-radius: 14px; padding: 18px 20px; font-size: 16px; line-height: 1.75; color: var(--text); }
+.app-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; padding: 3px 9px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid var(--line); margin: 0 2px; white-space: nowrap; }
+.app-chip .dotc { width: 9px; height: 9px; border-radius: 3px; flex: none; }
+.agent-caret { display: inline-block; width: 2px; height: 1.05em; background: var(--cyan); box-shadow: 0 0 6px var(--cyan); vertical-align: text-bottom; margin-left: 1px; animation: blink 1.1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.agent-steps { margin-top: 18px; display: flex; flex-direction: column; gap: 10px; }
+.agent-step { display: flex; align-items: flex-start; gap: 12px; background: var(--panel); border: 1px solid var(--line); border-radius: 11px; padding: 12px 14px; font-size: 14px; color: var(--muted); }
+.agent-step .n { flex: none; width: 22px; height: 22px; border-radius: 7px; background: var(--grad-soft); border: 1px solid var(--line); color: var(--cyan); font-size: 12px; font-weight: 700; display: grid; place-items: center; }
+.agent-step b { color: var(--text); font-weight: 600; }
+.agent-foot { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 18px; flex-wrap: wrap; }
+.agent-foot .note { font-size: 13px; color: var(--faint); display: inline-flex; align-items: center; gap: 8px; }
+.agent-foot .note .led { width: 7px; height: 7px; border-radius: 50%; background: var(--good); box-shadow: 0 0 8px var(--good); }
+
 /* ---------- Split ---------- */
 .split { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
 .split.rev .split-text { order: 2; }
@@ -653,6 +675,19 @@ a.role-chip:hover .cursor-ico { animation: none; transform: translate(1px, 1px);
   } else {
     revealEls.forEach(function (el) { el.classList.add("in"); });
   }
+
+  // Agentic layer demo: switch example agents
+  document.querySelectorAll(".agent-demo").forEach(function (d) {
+    var tabs = d.querySelectorAll(".agent-tab");
+    var panels = d.querySelectorAll(".agent-panel");
+    tabs.forEach(function (t) {
+      t.addEventListener("click", function () {
+        var k = t.getAttribute("data-agent");
+        tabs.forEach(function (b) { b.classList.toggle("active", b === t); });
+        panels.forEach(function (p) { p.classList.toggle("active", p.getAttribute("data-agent") === k); });
+      });
+    });
+  });
 
   // Footer year
   var y = document.querySelector("[data-year]");

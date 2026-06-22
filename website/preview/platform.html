@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The platform · truthOS</title>
-  <meta name="description" content="How truthOS works: one org data layer, four parts, six command centers, the founder AI, the dynamic client journey, and an agent layer that acts for you." />
+  <meta name="description" content="truthOS is a unified AI database with an agentic layer. One source of truth, fully manipulable with AI. Agents that own the work, and a command center for every role." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -272,6 +272,28 @@ a.role-chip:hover .cursor-ico { animation: none; transform: translate(1px, 1px);
 .console-ask svg { width: 16px; height: 16px; color: var(--cyan); flex: none; }
 .console-ask .k { margin-left: auto; font-size: 11px; color: var(--faint); border: 1px solid var(--line); border-radius: 6px; padding: 2px 7px; }
 
+/* ---------- Agentic layer demo (Tasklet-style) ---------- */
+.agent-demo { background: linear-gradient(180deg, var(--panel-2), var(--bg-1)); border: 1px solid var(--line-2); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow), var(--blue-glow); }
+.agent-tabs { display: flex; flex-wrap: wrap; gap: 8px; padding: 16px; border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.02); }
+.agent-tab { font-family: inherit; font-size: 13px; font-weight: 600; color: var(--muted); background: rgba(255,255,255,0.03); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; transition: color .15s, background .15s, border-color .15s; }
+.agent-tab:hover { color: var(--text); }
+.agent-tab.active { color: var(--text); background: var(--grad-soft); border-color: rgba(91,140,255,0.4); }
+.agent-body { padding: 22px; }
+.agent-panel { display: none; }
+.agent-panel.active { display: block; animation: ccfade .35s ease; }
+.agent-prompt { background: var(--panel); border: 1px solid var(--line-2); border-radius: 14px; padding: 18px 20px; font-size: 16px; line-height: 1.75; color: var(--text); }
+.app-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; padding: 3px 9px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid var(--line); margin: 0 2px; white-space: nowrap; }
+.app-chip .dotc { width: 9px; height: 9px; border-radius: 3px; flex: none; }
+.agent-caret { display: inline-block; width: 2px; height: 1.05em; background: var(--cyan); box-shadow: 0 0 6px var(--cyan); vertical-align: text-bottom; margin-left: 1px; animation: blink 1.1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.agent-steps { margin-top: 18px; display: flex; flex-direction: column; gap: 10px; }
+.agent-step { display: flex; align-items: flex-start; gap: 12px; background: var(--panel); border: 1px solid var(--line); border-radius: 11px; padding: 12px 14px; font-size: 14px; color: var(--muted); }
+.agent-step .n { flex: none; width: 22px; height: 22px; border-radius: 7px; background: var(--grad-soft); border: 1px solid var(--line); color: var(--cyan); font-size: 12px; font-weight: 700; display: grid; place-items: center; }
+.agent-step b { color: var(--text); font-weight: 600; }
+.agent-foot { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 18px; flex-wrap: wrap; }
+.agent-foot .note { font-size: 13px; color: var(--faint); display: inline-flex; align-items: center; gap: 8px; }
+.agent-foot .note .led { width: 7px; height: 7px; border-radius: 50%; background: var(--good); box-shadow: 0 0 8px var(--good); }
+
 /* ---------- Split ---------- */
 .split { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
 .split.rev .split-text { order: 2; }
@@ -503,34 +525,35 @@ a.role-chip:hover .cursor-ico { animation: none; transform: translate(1px, 1px);
     <section class="hero">
       <div class="wrap">
         <span class="eyebrow">The platform</span>
-        <h1>One place to run the whole business.</h1>
-        <p class="lead">truthOS pulls everything into one org, watches it, tells each person what to do next, and does a lot of the work itself. Here is how it fits together.</p>
+        <h1>A unified AI database with an <span class="gradient-text">agentic layer</span>.</h1>
+        <p class="lead">truthOS is one database for your whole business that AI can read, write, and act on. A flexible data layer underneath. An agentic layer on top that does the work. White-labeled, and entirely yours.</p>
         <div class="hero-cta">
           <a class="btn btn-primary btn-lg" href="book-a-call.html">Book a call <span class="arrow">&rarr;</span></a>
+          <a class="btn btn-ghost btn-lg" href="#agents">See the agentic layer</a>
         </div>
       </div>
     </section>
 
-    <!-- ONE DATA LAYER -->
+    <!-- THE DATABASE -->
     <section class="section-sm">
       <div class="wrap">
         <div class="split">
           <div class="split-text">
-            <span class="eyebrow">The foundation</span>
-            <h2>One org data layer.</h2>
-            <p>Everything is tied to one business and isolated to it: calls, numbers, clients, your team's work, messages. One source of truth per number, the same figures shared openly. The founder AI reads the actual situation, not a story about it.</p>
-            <p>The platform is then configured per org type. A coaching business and an agency get different recipes of the same parts.</p>
+            <span class="eyebrow">The database</span>
+            <h2>One source of truth, fully manipulable with AI.</h2>
+            <p>Everything your business runs on lives in one place, tied to one org and isolated to it: clients, numbers, calls, your team's work, messages. White-labeled and yours.</p>
+            <p>Think of it as white-labeled like GoHighLevel, as flexible as Airtable, with the output power and precision of Claude, and the experience of a product your team actually likes to use. You describe a change in plain language, and the database reshapes itself.</p>
           </div>
           <div class="reveal">
             <div class="mock">
-              <div class="mock-bar"><span class="dots"><i></i><i></i><i></i></span><span class="title">Org data layer</span></div>
+              <div class="mock-bar"><span class="dots"><i></i><i></i><i></i></span><span class="title">truthOS &middot; data layer</span></div>
               <div class="mock-body">
                 <div class="feed">
-                  <div class="row"><span class="badge">Calls</span><span class="grow">Transcribed, summarized, tied to the right client</span></div>
-                  <div class="row"><span class="badge">Numbers</span><span class="grow">One source of truth per metric</span></div>
-                  <div class="row"><span class="badge">Clients</span><span class="grow">Health, journey stage, history</span></div>
-                  <div class="row"><span class="badge">Team</span><span class="grow">Tasks, owners, deadlines</span></div>
-                  <div class="row"><span class="badge">Messages</span><span class="grow">Email and chat in context</span></div>
+                  <div class="row"><span class="badge">Clients</span><span class="grow">63 records &middot; health, stage, owner, history</span></div>
+                  <div class="row"><span class="badge">Deals</span><span class="grow">18 open &middot; value, stage, next step</span></div>
+                  <div class="row"><span class="badge">Calls</span><span class="grow">Transcribed, summarized, linked to records</span></div>
+                  <div class="row"><span class="badge">Finance</span><span class="grow">MRR, cash, receivables &middot; one number each</span></div>
+                  <div class="row" style="align-items:flex-start"><span class="badge now">AI</span><span class="grow">"Add a churn-risk field and flag anyone idle 14+ days." Done.</span></div>
                 </div>
               </div>
             </div>
@@ -539,62 +562,137 @@ a.role-chip:hover .cursor-ico { animation: none; transform: translate(1px, 1px);
       </div>
     </section>
 
-    <!-- FOUR PARTS -->
-    <section class="section">
+    <!-- THE AGENTIC LAYER -->
+    <section class="section" id="agents">
       <div class="wrap">
         <div class="section-head center mx-auto">
-          <span class="eyebrow">The parts</span>
-          <h2>Four parts, one system.</h2>
+          <span class="eyebrow">The agentic layer</span>
+          <h2>Agents that own the work.</h2>
+          <p class="lead mx-auto maxw-680">Describe what you want in plain language. truthOS builds the skill, connects your tools, and runs it for you, every time. Pick an example to see how a skill comes together.</p>
         </div>
-        <div class="grid grid-4">
-          <div class="card reveal">
-            <span class="num">01</span>
-            <h3 style="margin-top:10px">Command centers</h3>
-            <p>The pre-set, intelligent main dashboards. One per role.</p>
+        <div class="agent-demo reveal">
+          <div class="agent-tabs">
+            <button class="agent-tab active" data-agent="research">Pre-call research</button>
+            <button class="agent-tab" data-agent="invoice">Invoice follow-up</button>
+            <button class="agent-tab" data-agent="report">Weekly report</button>
+            <button class="agent-tab" data-agent="routing">Lead routing</button>
           </div>
-          <div class="card reveal">
-            <span class="num">02</span>
-            <h3 style="margin-top:10px">Dashboards</h3>
-            <p>Custom views a person builds from any data they have access to.</p>
-          </div>
-          <div class="card reveal">
-            <span class="num">03</span>
-            <h3 style="margin-top:10px">Founder AI</h3>
-            <p>The branded assistant, the engine inside the command centers.</p>
-          </div>
-          <div class="card reveal">
-            <span class="num">04</span>
-            <h3 style="margin-top:10px">Portals</h3>
-            <p>The client-facing login for members and customers.</p>
+          <div class="agent-body">
+
+            <div class="agent-panel active" data-agent="research">
+              <div class="agent-prompt">Before every <span class="app-chip"><span class="dotc" style="background:#2f6df0"></span>Calendly</span> sales call, research the account in <span class="app-chip"><span class="dotc" style="background:#e5573f"></span>ZoomInfo</span>, update the <span class="app-chip"><span class="dotc" style="background:#ff7a59"></span>HubSpot</span> opportunity, and prepare a tailored briefing.<span class="agent-caret"></span></div>
+              <div class="agent-steps">
+                <div class="agent-step"><span class="n">1</span><span><b>Watch Calendly</b> for new bookings.</span></div>
+                <div class="agent-step"><span class="n">2</span><span><b>Pull firmographics and buying signals</b> from ZoomInfo.</span></div>
+                <div class="agent-step"><span class="n">3</span><span><b>Draft a one-page briefing</b> in your format.</span></div>
+                <div class="agent-step"><span class="n">4</span><span><b>Update the HubSpot opportunity</b> with the research.</span></div>
+                <div class="agent-step"><span class="n">5</span><span><b>Send the briefing to the rep</b> before the call.</span></div>
+              </div>
+            </div>
+
+            <div class="agent-panel" data-agent="invoice">
+              <div class="agent-prompt">When a <span class="app-chip"><span class="dotc" style="background:#635bff"></span>Stripe</span> invoice is 7 days overdue, draft a friendly follow-up in <span class="app-chip"><span class="dotc" style="background:#ea4335"></span>Gmail</span> in our voice and flag it for me.<span class="agent-caret"></span></div>
+              <div class="agent-steps">
+                <div class="agent-step"><span class="n">1</span><span><b>Watch Stripe</b> for overdue invoices.</span></div>
+                <div class="agent-step"><span class="n">2</span><span><b>Draft a follow-up</b> in your voice.</span></div>
+                <div class="agent-step"><span class="n">3</span><span><b>Attach the invoice and a payment link.</b></span></div>
+                <div class="agent-step"><span class="n">4</span><span><b>Flag it for your approval.</b></span></div>
+                <div class="agent-step"><span class="n">5</span><span><b>Send and log</b> the outcome to the record.</span></div>
+              </div>
+            </div>
+
+            <div class="agent-panel" data-agent="report">
+              <div class="agent-prompt">Every Monday, build the weekly numbers from <span class="app-chip"><span class="dotc" style="background:#5b8cff"></span>truthOS</span>, write the recap, and post it to <span class="app-chip"><span class="dotc" style="background:#7c3aed"></span>Slack</span>.<span class="agent-caret"></span></div>
+              <div class="agent-steps">
+                <div class="agent-step"><span class="n">1</span><span><b>Pull the week's numbers</b> from the data layer.</span></div>
+                <div class="agent-step"><span class="n">2</span><span><b>Compare to plan</b> and flag what moved.</span></div>
+                <div class="agent-step"><span class="n">3</span><span><b>Write the recap</b> in your voice.</span></div>
+                <div class="agent-step"><span class="n">4</span><span><b>Post it to #leadership.</b></span></div>
+                <div class="agent-step"><span class="n">5</span><span><b>Log the decisions</b> back to the data layer.</span></div>
+              </div>
+            </div>
+
+            <div class="agent-panel" data-agent="routing">
+              <div class="agent-prompt">Route every new <span class="app-chip"><span class="dotc" style="background:#ff7a59"></span>HubSpot</span> lead to the closer with the best fit and the highest close rate this week, and notify them in <span class="app-chip"><span class="dotc" style="background:#7c3aed"></span>Slack</span>.<span class="agent-caret"></span></div>
+              <div class="agent-steps">
+                <div class="agent-step"><span class="n">1</span><span><b>Watch HubSpot</b> for new leads.</span></div>
+                <div class="agent-step"><span class="n">2</span><span><b>Score fit</b> against your ICP.</span></div>
+                <div class="agent-step"><span class="n">3</span><span><b>Check each closer's live close rate.</b></span></div>
+                <div class="agent-step"><span class="n">4</span><span><b>Assign and notify</b> them in Slack.</span></div>
+                <div class="agent-step"><span class="n">5</span><span><b>Track the lead</b> to first call.</span></div>
+              </div>
+            </div>
+
+            <div class="agent-foot">
+              <span class="note"><span class="led"></span> Runs automatically, every time. You stay in control.</span>
+              <a class="btn btn-primary" href="book-a-call.html">Create a skill <span class="arrow">&rarr;</span></a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- WHAT EVERY CC DOES -->
-    <section class="section-sm">
+    <!-- THE DASHBOARD -->
+    <section class="section" id="dashboard">
       <div class="wrap">
-        <div class="statement reveal">
-          <p>A dashboard shows you the data. A command center lets you use AI to act on it.</p>
+        <div class="section-head center mx-auto">
+          <span class="eyebrow">The dashboard</span>
+          <h2>Run the business from one screen.</h2>
+          <p class="lead mx-auto maxw-680">Every role gets a command center that reads the data, surfaces the decisions, and acts with you. Click around to explore each one.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- SIX COMMAND CENTERS -->
-    <section class="section" id="command-centers">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="eyebrow">The command centers</span>
-          <h2>Six command centers.</h2>
-          <p class="lead">Each one shows the most important data, surfaces the decisions to make, tracks the actions taken and still needed, directs you to the next one, and gives step-by-step support from the founder AI to take it.</p>
-        </div>
-        <div class="cc-grid">
-          <div class="cc reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-7-7 18-2-7-9-4z"/></svg></div><h3>Client acquisition</h3><p>Reviews every call with objections and fixes, routes leads to who's closing, and turns the demo into the sale.</p></div>
-          <div class="cc reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h3>Client success</h3><p>Opens to who needs you today, shows each client's health, and catches the slipping ones early.</p></div>
-          <div class="cc reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></div><h3>Hiring</h3><p>Runs the pipeline from role to offer and trains a new operator to own the work, fully documented.</p></div>
-          <div class="cc reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h3>Project management</h3><p>Every deliverable, owner and deadline in one view. The busywork does itself.</p></div>
-          <div class="cc reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3>Financial</h3><p>A live model. The same numbers you run on are the ones your partners see.</p></div>
-          <div class="cc reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-2.82 1.17V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 8 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 14a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 8a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 10 3.09V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 2.82 1.17l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 20.91 10H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div><h3>Operator</h3><p>Opens it and it says what to do today, in order. The single seat the business runs from.</p></div>
+        <div class="reveal">
+          <div class="console">
+            <div class="console-bar">
+              <span class="dots"><i></i><i></i><i></i></span>
+              <span class="title">truthOS &middot; command centers</span>
+              <span class="live"><span class="led"></span> Live</span>
+            </div>
+            <div class="console-grid">
+              <aside class="console-side">
+                <button class="cc-btn active" data-cc="operator"><svg class="gi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-2.82 1.17V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 8 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 14a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 8a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 10 3.09V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 2.82 1.17l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 20.91 10H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Operator</button>
+                <button class="cc-btn" data-cc="acquisition"><svg class="gi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-7-7 18-2-7-9-4z"/></svg> Client acquisition</button>
+                <button class="cc-btn" data-cc="success"><svg class="gi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Client success</button>
+                <button class="cc-btn" data-cc="hiring"><svg class="gi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg> Hiring</button>
+                <button class="cc-btn" data-cc="projects"><svg class="gi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Project management</button>
+                <button class="cc-btn" data-cc="financial"><svg class="gi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Financial</button>
+              </aside>
+              <div class="console-main">
+                <div class="cc-panel active" data-cc="operator">
+                  <div class="cc-head"><div><h4>Operator command center</h4><div class="sub">Run the whole business from one seat</div></div><div class="ai-chip"><span class="d"></span> <span><b>Founder AI:</b> 4 things need you today. Start with the AFA renewal.</span></div></div>
+                  <div class="stat-row"><div class="stat-box"><div class="k">Cash collected</div><div class="v up">$214,800</div><div class="tiny">+18% vs last month</div></div><div class="stat-box"><div class="k">Active clients</div><div class="v">63</div><div class="tiny">4 need you today</div></div><div class="stat-box"><div class="k">Net retention</div><div class="v up">112%</div><div class="tiny">2 at risk, flagged early</div></div></div>
+                  <div class="bars"><span class="b" style="height:42%"></span><span class="b" style="height:58%"></span><span class="b" style="height:50%"></span><span class="b" style="height:71%"></span><span class="b" style="height:64%"></span><span class="b" style="height:88%"></span><span class="b" style="height:79%"></span><span class="b" style="height:96%"></span></div>
+                  <div class="feed" style="margin-top:16px"><div class="row"><span class="badge now">Do now</span><span class="grow">Renewal call with Eddie M. in 40 min. Founder AI drafted the agenda.</span></div><div class="row"><span class="badge">Flagged</span><span class="grow">Client usage down 3 weeks. Suggested check-in ready to send.</span></div><div class="row"><span class="badge">Done</span><span class="grow">May reports built and sent to 12 clients in one click.</span></div></div>
+                </div>
+                <div class="cc-panel" data-cc="acquisition">
+                  <div class="cc-head"><div><h4>Client acquisition</h4><div class="sub">Turn calls into closes</div></div><div class="ai-chip"><span class="d"></span> <span><b>Founder AI:</b> The pricing objection came up in 4 of 6 calls this week. Here's the pattern and a revised handle.</span></div></div>
+                  <div class="stat-row"><div class="stat-box"><div class="k">Calls this week</div><div class="v">34</div><div class="tiny">all reviewed</div></div><div class="stat-box"><div class="k">Close rate</div><div class="v up">41%</div><div class="tiny">up from 24%</div></div><div class="stat-box"><div class="k">Objections flagged</div><div class="v">3</div><div class="tiny">pricing, timing, competitor</div></div></div>
+                  <div class="feed"><div class="row"><span class="badge now">Do now</span><span class="grow">Review Jake's call from Tuesday. Founder AI flagged a missed close opportunity.</span></div><div class="row"><span class="badge">Done</span><span class="grow">8 call summaries auto-generated, synced to CRM and sent to closers for feedback.</span></div></div>
+                </div>
+                <div class="cc-panel" data-cc="success">
+                  <div class="cc-head"><div><h4>Client success</h4><div class="sub">Know who needs you today</div></div><div class="ai-chip"><span class="d"></span> <span><b>Founder AI:</b> Sarah hasn't logged in for 18 days. On her last call she said she was "overwhelmed." I drafted a check-in referencing her Week 2 win.</span></div></div>
+                  <div class="stat-row"><div class="stat-box"><div class="k">Needing attention</div><div class="v">4</div><div class="tiny">today</div></div><div class="stat-box"><div class="k">At risk</div><div class="v">2</div><div class="tiny">usage down 3+ weeks</div></div><div class="stat-box"><div class="k">Ready for upsell</div><div class="v up">2</div><div class="tiny">hitting their goals</div></div></div>
+                  <div class="feed"><div class="row"><span class="badge now">Do now</span><span class="grow">Send check-in to Sarah. Review Marco's milestone for a case study.</span></div><div class="row"><span class="badge">Flagged</span><span class="grow">2 clients haven't completed onboarding steps.</span></div><div class="row"><span class="badge">Testimonial</span><span class="grow">1 client hit a milestone this week, ready for a testimonial.</span></div></div>
+                </div>
+                <div class="cc-panel" data-cc="hiring">
+                  <div class="cc-head"><div><h4>Hiring</h4><div class="sub">Place trained operators</div></div><div class="ai-chip"><span class="d"></span> <span><b>Founder AI:</b> 3 candidates passed the assignment. Top score: 92.</span></div></div>
+                  <div class="stat-row"><div class="stat-box"><div class="k">Open roles</div><div class="v">2</div><div class="tiny">operator, CSM</div></div><div class="stat-box"><div class="k">In pipeline</div><div class="v">14</div><div class="tiny">5 in final stage</div></div><div class="stat-box"><div class="k">Avg score</div><div class="v up">78</div><div class="tiny">on the assignment</div></div></div>
+                  <div class="feed"><div class="row"><span class="badge now">Do now</span><span class="grow">Final interview for the operator role at 4pm.</span></div><div class="row"><span class="badge">Scored</span><span class="grow">Assignment graded: 92. Recommend advancing.</span></div><div class="row"><span class="badge">Ready</span><span class="grow">Onboarding doc generated, fully documented to own the seat.</span></div></div>
+                </div>
+                <div class="cc-panel" data-cc="projects">
+                  <div class="cc-head"><div><h4>Project management</h4><div class="sub">Every deliverable, owner and deadline</div></div><div class="ai-chip"><span class="d"></span> <span><b>Founder AI:</b> 2 builds at risk of slipping. Rebalance suggested.</span></div></div>
+                  <div class="stat-row"><div class="stat-box"><div class="k">On track</div><div class="v up">18</div><div class="tiny">of 22 active</div></div><div class="stat-box"><div class="k">At risk</div><div class="v">2</div><div class="tiny">flagged early</div></div><div class="stat-box"><div class="k">Shipped</div><div class="v up">11</div><div class="tiny">this week</div></div></div>
+                  <div class="feed"><div class="row"><span class="badge now">Do now</span><span class="grow">Eddie portal build: design review due today.</span></div><div class="row"><span class="badge">Blocked</span><span class="grow">Waiting on brand assets. Reminder drafted to the client.</span></div><div class="row"><span class="badge">Shipped</span><span class="grow">CoAuthor v2 released to Royalty Hero.</span></div></div>
+                </div>
+                <div class="cc-panel" data-cc="financial">
+                  <div class="cc-head"><div><h4>Financial command center</h4><div class="sub">A live model, not a month-end surprise</div></div><div class="ai-chip"><span class="d"></span> <span><b>Founder AI:</b> Revenue is tracking 12% above forecast. Two renewals are due this week.</span></div></div>
+                  <div class="stat-row"><div class="stat-box"><div class="k">MRR</div><div class="v up">$264,200</div><div class="tiny">+12% vs forecast</div></div><div class="stat-box"><div class="k">Cash collected</div><div class="v up">$414,800</div><div class="tiny">this month</div></div><div class="stat-box"><div class="k">Receivables</div><div class="v">$18,400</div><div class="tiny">3 invoices 7+ days</div></div></div>
+                  <div class="bars"><span class="b" style="height:55%"></span><span class="b" style="height:60%"></span><span class="b" style="height:58%"></span><span class="b" style="height:69%"></span><span class="b" style="height:74%"></span><span class="b" style="height:82%"></span><span class="b" style="height:90%"></span><span class="b" style="height:97%"></span></div>
+                  <div class="feed" style="margin-top:16px"><div class="row"><span class="badge now">Do now</span><span class="grow">Send Eddie's renewal proposal (drafted).</span></div><div class="row"><span class="badge">Done</span><span class="grow">May P&amp;L built and shared with partners.</span></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="faint center" style="margin-top:16px; font-size:13.5px">Click any command center to explore it.</p>
         </div>
       </div>
     </section>
@@ -606,7 +704,7 @@ a.role-chip:hover .cursor-ico { animation: none; transform: translate(1px, 1px);
           <div class="split-text">
             <span class="eyebrow">The founder AI</span>
             <h2>The founder in the client's pocket.</h2>
-            <p>The branded assistant is the engine inside every command center. It's trained on your own calls, videos and frameworks, answers in your voice, and gets smarter every call.</p>
+            <p>The branded assistant is the engine inside every command center and skill. It's trained on your own calls, videos and frameworks, answers in your voice, and gets smarter every interaction.</p>
             <p>The client's own data lives in it and gets benchmarked against everyone else's. That's why leaving means losing it.</p>
             <ul class="checklist">
               <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Answers in your voice, not a generic one.</li>
@@ -620,7 +718,7 @@ a.role-chip:hover .cursor-ico { animation: none; transform: translate(1px, 1px);
               <div class="mock-body">
                 <div class="feed">
                   <div class="row"><span class="badge">Member</span><span class="grow">I have two offers and don't know which to launch first.</span></div>
-                  <div class="row" style="align-items:flex-start"><span class="badge now">Founder AI</span><span class="grow">Based on your last call and your numbers, lead with the one your audience already asks for. Here's the 3-step launch from my framework, in order.</span></div>
+                  <div class="row" style="align-items:flex-start"><span class="badge now">Founder AI</span><span class="grow">Based on your last call and your numbers, lead with the one your audience already asks for. Here's the 3-step launch from your framework, in order.</span></div>
                   <div class="row"><span class="badge">Journey</span><span class="grow">Next move set &middot; constraint: distribution</span></div>
                 </div>
               </div>
@@ -630,49 +728,11 @@ a.role-chip:hover .cursor-ico { animation: none; transform: translate(1px, 1px);
       </div>
     </section>
 
-    <!-- DYNAMIC JOURNEY -->
-    <section class="section">
+    <!-- BUILT AND RUN BY IMPACT OPS -->
+    <section class="section-sm">
       <div class="wrap">
-        <div class="split">
-          <div class="split-text">
-            <span class="eyebrow">The dynamic client journey</span>
-            <h2>The right next move, always.</h2>
-            <p>From the first call, truthOS reads it, lays out the client's key moves in order, and highlights the one to focus on now. It advances as they finish.</p>
-            <p>The founder AI stays pointed at the real constraint, so clients stop chasing shiny objects and start finishing.</p>
-          </div>
-          <div class="reveal">
-            <div class="mock">
-              <div class="mock-bar"><span class="dots"><i></i><i></i><i></i></span><span class="title">Client journey</span></div>
-              <div class="mock-body">
-                <div class="feed">
-                  <div class="row"><span class="badge">Done</span><span class="grow">Onboarding and goal set</span></div>
-                  <div class="row"><span class="badge">Done</span><span class="grow">Offer clarified</span></div>
-                  <div class="row"><span class="badge now">Focus now</span><span class="grow">Build the distribution engine</span></div>
-                  <div class="row"><span class="badge">Next</span><span class="grow">First productized launch</span></div>
-                  <div class="row"><span class="badge">Next</span><span class="grow">Scale and benchmark</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- AGENT LAYER -->
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head center mx-auto">
-          <span class="eyebrow">The agent and action layer</span>
-          <h2>Connect your tools. It acts for you.</h2>
-          <p class="lead mx-auto maxw-680">truthOS doesn't just show the data. It does the work, right where you see it.</p>
-        </div>
-        <div class="grid grid-3">
-          <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><h3>Centralized data</h3><p>Everything in one place, one version of the truth.</p></div>
-          <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div><h3>Automated analysis</h3><p>Reads the numbers, says what they mean, and flags what's off early.</p></div>
-          <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div><h3>One-click creation</h3><p>Write the email, build the report, make the asset or payment link, and send it, in one click.</p></div>
-          <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>In-line interaction</h3><p>Follow up, assign and act right where you see the data, with your department.</p></div>
-          <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-6 0v4M5 9h14l1 12H4L5 9z"/></svg></div><h3>Slack agents</h3><p>Assistants trained on all of your data, living in Slack, that know the whole business and get things done.</p></div>
-          <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-4z"/></svg></div><h3>Owned and yours</h3><p>White-labeled on your domain. The smarter it gets, the more it's worth, and it belongs to you.</p></div>
+        <div class="statement reveal">
+          <p>truthOS is the software. Impact Ops is the team that built it and runs it on your behalf.</p>
         </div>
       </div>
     </section>
@@ -682,7 +742,7 @@ a.role-chip:hover .cursor-ico { animation: none; transform: translate(1px, 1px);
       <div class="wrap">
         <div class="cta-band reveal">
           <h2>See it run on your business.</h2>
-          <p>The demo is the strongest part. Book a call and we'll show you truthOS configured for your org.</p>
+          <p>Book a call and we'll show you truthOS, the database, the agents, and the dashboard, configured for your org.</p>
           <a class="btn btn-primary btn-lg" href="book-a-call.html">Book a call <span class="arrow">&rarr;</span></a>
         </div>
       </div>
@@ -709,9 +769,9 @@ a.role-chip:hover .cursor-ico { animation: none; transform: translate(1px, 1px);
 </svg>truth<b class="gradient-text">OS</b></a>
           <p class="blurb">truthOS enforces truth across your business, eliciting the flywheel of trust.</p>
         </div>
-        <div><h5>Product</h5><ul><li><a href="platform.html">The platform</a></li><li><a href="platform.html#command-centers">Command centers</a></li><li><a href="platform.html#founder-ai">Founder AI</a></li><li><a href="pricing.html">Work with us</a></li></ul></div>
+        <div><h5>Product</h5><ul><li><a href="platform.html">The platform</a></li><li><a href="platform.html#agents">The agentic layer</a></li><li><a href="platform.html#founder-ai">Founder AI</a></li><li><a href="pricing.html">Work with us</a></li></ul></div>
         <div><h5>Company</h5><ul><li><a href="who-its-for.html">Who it's for</a></li><li><a href="proof.html">Proof</a></li><li><a href="about.html">Our truth</a></li><li><a href="book-a-call.html">Book a call</a></li></ul></div>
-        <div><h5>Get started</h5><ul><li><a href="book-a-call.html">Apply</a></li><li><a href="mailto:hello@truthos.io">Contact</a></li></ul></div>
+        <div><h5>Get started</h5><ul><li><a href="pricing.html">Start with an audit</a></li><li><a href="book-a-call.html">Apply</a></li><li><a href="mailto:hello@truthos.io">Contact</a></li></ul></div>
       </div>
       <div class="footer-bot">
         <span>&copy; <span data-year>2026</span> truthOS by Impact Ops. All rights reserved.</span>
@@ -762,6 +822,19 @@ a.role-chip:hover .cursor-ico { animation: none; transform: translate(1px, 1px);
   } else {
     revealEls.forEach(function (el) { el.classList.add("in"); });
   }
+
+  // Agentic layer demo: switch example agents
+  document.querySelectorAll(".agent-demo").forEach(function (d) {
+    var tabs = d.querySelectorAll(".agent-tab");
+    var panels = d.querySelectorAll(".agent-panel");
+    tabs.forEach(function (t) {
+      t.addEventListener("click", function () {
+        var k = t.getAttribute("data-agent");
+        tabs.forEach(function (b) { b.classList.toggle("active", b === t); });
+        panels.forEach(function (p) { p.classList.toggle("active", p.getAttribute("data-agent") === k); });
+      });
+    });
+  });
 
   // Footer year
   var y = document.querySelector("[data-year]");

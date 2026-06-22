@@ -40,6 +40,19 @@
     revealEls.forEach(function (el) { el.classList.add("in"); });
   }
 
+  // Agentic layer demo: switch example agents
+  document.querySelectorAll(".agent-demo").forEach(function (d) {
+    var tabs = d.querySelectorAll(".agent-tab");
+    var panels = d.querySelectorAll(".agent-panel");
+    tabs.forEach(function (t) {
+      t.addEventListener("click", function () {
+        var k = t.getAttribute("data-agent");
+        tabs.forEach(function (b) { b.classList.toggle("active", b === t); });
+        panels.forEach(function (p) { p.classList.toggle("active", p.getAttribute("data-agent") === k); });
+      });
+    });
+  });
+
   // Footer year
   var y = document.querySelector("[data-year]");
   if (y) y.textContent = new Date().getFullYear();

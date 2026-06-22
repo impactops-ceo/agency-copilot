@@ -178,3 +178,60 @@ The original rebuild brief pointed to canonical docs (`thesis.md`,
 repo**. The other repo in this account, **`impactops-ceo/core-flow`** (private), may
 hold them. This knowledge file was built from the brief text and the conversation, not
 from those files.
+
+---
+
+## 12. Strategic direction (June 2026, from Jordan)
+
+Captured from a vision dump. This is direction, not all shipped yet.
+
+**Reference products (the bar to hit):**
+- **Macro.com** — "the unified AI workspace / agents that own the work." truthOS's
+  Platform page should borrow this positioning: **"a unified AI database with an
+  agentic layer."**
+- **Tasklet.ai** — automated workflows + skill/agent creation ("agents that own the
+  work," natural-language agent builder with app chips). Model for truthOS's
+  **agentic-layer interactive demo**. Also a credit-based SaaS pricing reference
+  (Free / $25 / $100 / $250 per month, credits + bonus credits, per-tier features).
+- **Viktor.com** — usability and experience; model for the **dashboard/interaction
+  demo**.
+
+**Personal-use wedge:** these tools are great for individual use. truthOS should get
+there too. Strategy: **target CEOs / Entrepreneurs for personal use first**; once they
+love it for themselves, they want it implemented across their business. Personal
+adoption is the top of the funnel into the done-with-you implementation.
+
+**Product architecture vision:** truthOS is a **white-labeled database that is 100%
+manipulable with AI**. The blend to aim for: white-labeled like **GoHighLevel**,
+fully custom interface like **Airtable**, output power and precision like **Claude**,
+usability and experience like **Viktor**.
+
+**Org relationship:** **Impact Ops is the team that runs truthOS on your behalf, and
+also built the platform.** truthOS = the software; Impact Ops = the implementation and
+operating partner.
+
+**Pricing model (evolving — supersedes "no pricing" once defined):**
+- SaaS-style software pricing like Viktor / Tasklet / Macro **plus a buildout fee**,
+  justified by the skill gap at most companies and the surplus of fraudulent dev
+  agencies/providers in the space (trust play).
+- During buildout/onboarding, ongoing optimization and involvement are priced into the
+  **platform fee + scaling on credits/usage**. **Overdeliver during onboarding and
+  support months** so staying on retainer with Impact Ops is a no-brainer.
+- A **per-seat charge** that makes sense, which **Impact Ops covers in partnership with
+  truthOS**.
+- (Note: this is a shift from the current site's "no pricing" stance. Don't change the
+  live pricing page to numbers until Jordan locks the figures.)
+
+**Transparency as the moat / flywheel of proof:**
+- Only take on clients we know we can crush it for.
+- Lead from the front: be 100% transparent in our own client results and
+  relationships. That lets us convince clients to be transparent too, by showing the
+  impact on market share and profit. **"We become our own case study."**
+
+**Long-term:** Impact Ops eventually has a **truthOS product for how to set up truthOS
+and scale an implementation company** (productize the implementation playbook so others
+can run truthOS implementations).
+
+**Concrete near-term build:** rebuild the **Platform page** as: hero "a unified AI
+database with an agentic layer" → interactive **agentic layer** demo (Tasklet-style
+workflows + skill creation) → interactive **dashboard** demo (Viktor-style).
