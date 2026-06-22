@@ -44,6 +44,21 @@
   var y = document.querySelector("[data-year]");
   if (y) y.textContent = new Date().getFullYear();
 
+  // Hero role rotator: cycle the audience word with a soft fade
+  document.querySelectorAll(".rotator").forEach(function (el) {
+    var words = (el.getAttribute("data-words") || "").split(",").filter(Boolean);
+    if (words.length < 2) return;
+    var i = 0;
+    setInterval(function () {
+      el.style.opacity = "0";
+      setTimeout(function () {
+        i = (i + 1) % words.length;
+        el.textContent = words[i];
+        el.style.opacity = "1";
+      }, 250);
+    }, 2200);
+  });
+
   // Interactive command-center console: click a center to switch the dashboard
   document.querySelectorAll(".console").forEach(function (con) {
     var btns = con.querySelectorAll(".cc-btn");

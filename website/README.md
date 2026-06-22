@@ -77,8 +77,12 @@ If you want these figures on the page later, add them to the two cards in
 
 - **New logo** for the top-left wordmark (currently the `truthOS` gradient lockup,
   built in `.brand`). Drop in the asset and swap the `.brand` markup.
-- **New hero sub-headline copy** (current line is a placeholder to be replaced).
-- **New copy for the problem section** on the home page.
+- **The 2-min platform video.** The hero "Watch the platform (2 min)" button links to
+  `#` with a TODO comment. Point it at the real video URL when it exists.
+- **Confirm the "$10M per month in data flowing through our systems" figure** before
+  publishing (home partners strip, flagged with a comment).
+- Partner names on the strip should become real logos (white wordmarks on dark) when
+  available.
 
 ## Wire up before launch
 

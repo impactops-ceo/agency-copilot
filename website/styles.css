@@ -200,6 +200,8 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
 .hero-note { margin-top: 20px; font-size: 14px; color: var(--faint); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .hero-note .pill { color: var(--muted); }
+.hero-bridge { font-size: clamp(17px, 2.1vw, 21px); font-weight: 600; color: var(--muted); margin-top: 18px; }
+.hero-bridge .rotator { display: inline-block; transition: opacity .25s ease; font-weight: 700; }
 
 .pill {
   display: inline-flex; align-items: center; gap: 8px;
