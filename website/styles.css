@@ -280,6 +280,20 @@ a.role-chip:hover .cursor-ico { animation: none; transform: translate(1px, 1px);
 /* ---------- Statement / big quote ---------- */
 .statement { border: 1px solid var(--line); border-radius: var(--r-xl); background: var(--grad-soft); padding: 58px 48px; text-align: center; }
 .statement p { font-size: clamp(24px, 3.4vw, 38px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.18; max-width: 20ch; margin: 0 auto; }
+.statement.invert { background: #ffffff; border-color: transparent; box-shadow: 0 34px 80px -36px rgba(0,0,0,0.7); }
+.statement.invert p { color: #0d1426; }
+
+/* ---------- Light section (white band on the dark page) ---------- */
+.section-light { background: #ffffff; }
+.section-light h1, .section-light h2, .section-light h3, .section-light h4 { color: #0d1426; }
+.section-light .lead, .section-light p { color: #4b5468; }
+.section-light .eyebrow { color: #2f63e0; }
+.section-light .eyebrow::before { background: #2f63e0; }
+.section-light .quote { background: #ffffff; border-color: rgba(13,20,38,0.10); box-shadow: 0 20px 46px -26px rgba(20,25,60,0.28); }
+.section-light .quote p { color: #0d1426; }
+.section-light .quote .by { color: #5b6478; }
+.section-light .btn-ghost { background: #ffffff; border-color: rgba(13,20,38,0.16); color: #0d1426; }
+.section-light .btn-ghost:hover { border-color: #2f63e0; color: #2f63e0; }
 
 /* ---------- Logos strip ---------- */
 .logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px 40px; }
