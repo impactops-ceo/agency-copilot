@@ -306,7 +306,7 @@ a.role-chip:hover .cursor-ico { animation: none; transform: translate(1px, 1px);
 .section-light .faint { color: #6b7488; }
 /* founder quote on white partners band */
 .founder-quote { display: flex; align-items: center; gap: 20px; justify-content: center; max-width: 780px; margin: 0 auto 34px; text-align: left; }
-.founder-photo { width: 86px; height: 86px; border-radius: 50%; object-fit: cover; flex: none; border: 2px solid rgba(13,20,38,0.08); box-shadow: 0 12px 30px -14px rgba(0,0,0,0.4); background: #e9ecf3; }
+.founder-photo { width: 92px; height: 92px; border-radius: 50%; object-fit: cover; object-position: center 22%; flex: none; border: 2px solid rgba(13,20,38,0.08); box-shadow: 0 12px 30px -14px rgba(0,0,0,0.4); background: #e9ecf3; }
 .founder-says { color: #0d1426; font-weight: 700; font-size: clamp(17px, 2vw, 21px); line-height: 1.4; }
 @media (max-width: 560px) { .founder-quote { flex-direction: column; text-align: center; gap: 14px; } }
 
