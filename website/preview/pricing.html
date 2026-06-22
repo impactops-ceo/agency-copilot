@@ -282,6 +282,11 @@ a.role-chip:hover .cursor-ico { animation: none; transform: translate(1px, 1px);
 .cc .ic svg { width: 20px; height: 20px; }
 .cc h3 { font-size: 19px; margin-bottom: 8px; }
 .cc p { font-size: 14.5px; color: var(--muted); }
+/* mix in some white-backed cards to break up the grid */
+.cc-grid .cc:nth-child(even) { background: #ffffff; border-color: transparent; box-shadow: 0 26px 60px -30px rgba(0,0,0,0.72); }
+.cc-grid .cc:nth-child(even) h3 { color: #0d1426; }
+.cc-grid .cc:nth-child(even) p { color: #4b5468; }
+.cc-grid .cc:nth-child(even) .ic { background: var(--grad); border-color: transparent; color: #04101f; }
 
 /* ---------- Statement / big quote ---------- */
 .statement { border: 1px solid var(--line); border-radius: var(--r-xl); background: var(--grad-soft); padding: 58px 48px; text-align: center; }
