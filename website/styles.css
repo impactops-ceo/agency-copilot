@@ -294,6 +294,8 @@ a.role-chip:hover .cursor-ico { animation: none; transform: translate(1px, 1px);
 .section-light .quote .by { color: #5b6478; }
 .section-light .btn-ghost { background: #ffffff; border-color: rgba(13,20,38,0.16); color: #0d1426; }
 .section-light .btn-ghost:hover { border-color: #2f63e0; color: #2f63e0; }
+.section-light .logos .logo { color: #2c3445; opacity: 1; }
+.section-light .faint { color: #6b7488; }
 
 /* ---------- Logos strip ---------- */
 .logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px 40px; }
