@@ -157,8 +157,9 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
 
 /* ---------- Hero (left-aligned truthOS hero) ---------- */
 .hero { padding: 72px 0 48px; }
-.hero h1 { max-width: 16ch; }
+.hero h1 { max-width: 18ch; font-size: clamp(36px, 6.6vw, 84px); line-height: 1.04; }
 .hero .lead { max-width: 56ch; margin-top: 22px; }
+@media (min-width: 1280px) { .hero h1 { font-size: clamp(72px, 5.6vw, 92px); } }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
 .hero-note { margin-top: 22px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 
@@ -168,6 +169,13 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
   background: var(--grad-soft); border: 1px solid var(--line); color: var(--text);
 }
 .pill .led { width: 7px; height: 7px; border-radius: 50%; background: var(--good); box-shadow: 0 0 10px var(--good); }
+/* red "warning" pill */
+.pill-warning { border-color: rgba(255,107,122,0.55); background: rgba(255,107,122,0.09); color: #ffd6dc; box-shadow: 0 0 0 1px rgba(255,107,122,0.16), 0 0 24px -5px rgba(255,107,122,0.6); }
+.pill-warning .warn-ico { width: 15px; height: 15px; color: var(--bad); flex: none; }
+/* green-outlined "watch the platform" button */
+.btn-watch { border-color: rgba(70,217,160,0.7); box-shadow: 0 0 0 1px rgba(70,217,160,0.22), 0 10px 30px -14px rgba(70,217,160,0.5); }
+.btn-watch:hover { background: rgba(70,217,160,0.08); border-color: var(--good); box-shadow: 0 0 0 1px rgba(70,217,160,0.4), 0 14px 34px -14px rgba(70,217,160,0.7); }
+.btn-watch svg { color: var(--good); }
 
 /* hero bridge + AI role chip */
 .hero-bridge { font-size: clamp(16px, 2vw, 20px); font-weight: 600; color: var(--muted); margin-top: 22px; display: flex; align-items: center; gap: 11px; flex-wrap: wrap; }
@@ -305,8 +313,13 @@ a.role-chip:hover .cursor-ico { animation: none; transform: translate(1px, 1px);
 .section-light .quote .by { color: #5b6478; }
 .section-light .btn-ghost { background: #ffffff; border-color: rgba(13,20,38,0.16); color: #0d1426; }
 .section-light .btn-ghost:hover { border-color: #2f63e0; color: #2f63e0; }
-.section-light .logos .logo { color: #2c3445; opacity: 1; }
+.section-light .logos .logo { color: #0d1426; opacity: 1; }
 .section-light .faint { color: #6b7488; }
+/* founder quote on white partners band */
+.founder-quote { display: flex; align-items: center; gap: 20px; justify-content: center; max-width: 780px; margin: 0 auto 34px; text-align: left; }
+.founder-photo { width: 86px; height: 86px; border-radius: 50%; object-fit: cover; flex: none; border: 2px solid rgba(13,20,38,0.08); box-shadow: 0 12px 30px -14px rgba(0,0,0,0.4); background: #e9ecf3; }
+.founder-says { color: #0d1426; font-weight: 700; font-size: clamp(17px, 2vw, 21px); line-height: 1.4; }
+@media (max-width: 560px) { .founder-quote { flex-direction: column; text-align: center; gap: 14px; } }
 
 /* ---------- Logos strip ---------- */
 .logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px 40px; }
