@@ -193,6 +193,8 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
   background: var(--grad);
   box-shadow: 0 6px 18px -6px rgba(47,140,255,0.8);
 }
+.brand-mark { width: 30px; height: 30px; display: block; flex: none; }
+.footer .brand-mark { width: 28px; height: 28px; }
 .brand b { font-weight: 800; }
 .nav-links { display: flex; align-items: center; gap: 30px; }
 .nav-links a { color: var(--muted); font-size: 15px; font-weight: 500; transition: color .15s ease; }
@@ -615,7 +617,19 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
   <!-- ===== NAV ===== -->
   <header class="nav">
     <div class="wrap nav-inner">
-      <a class="brand" href="index.html"><span class="dot"></span>truth<b class="gradient-text">OS</b></a>
+      <a class="brand" href="index.html"><svg class="brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" role="img" aria-label="truthOS">
+  <defs>
+    <linearGradient id="tos-grad" x1="14" y1="12" x2="82" y2="84" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5b8cff"/>
+      <stop offset="1" stop-color="#2fe1e6"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#tos-grad)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="48" cy="58" r="24"/>
+    <path d="M48 12 V58"/>
+    <path d="M28 30 H68"/>
+  </g>
+</svg>truth<b class="gradient-text">OS</b></a>
       <nav class="nav-links">
         <a href="platform.html">The platform</a>
         <a href="who-its-for.html">Who it's for</a>
@@ -1071,7 +1085,19 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
     <div class="wrap">
       <div class="footer-top">
         <div>
-          <a class="brand" href="index.html"><span class="dot"></span>truth<b class="gradient-text">OS</b></a>
+          <a class="brand" href="index.html"><svg class="brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" role="img" aria-label="truthOS">
+  <defs>
+    <linearGradient id="tos-grad" x1="14" y1="12" x2="82" y2="84" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5b8cff"/>
+      <stop offset="1" stop-color="#2fe1e6"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#tos-grad)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="48" cy="58" r="24"/>
+    <path d="M48 12 V58"/>
+    <path d="M28 30 H68"/>
+  </g>
+</svg>truth<b class="gradient-text">OS</b></a>
           <p class="blurb">truthOS enforces truth across your business, eliciting the flywheel of trust.</p>
         </div>
         <div>

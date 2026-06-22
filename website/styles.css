@@ -185,6 +185,8 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
   background: var(--grad);
   box-shadow: 0 6px 18px -6px rgba(47,140,255,0.8);
 }
+.brand-mark { width: 30px; height: 30px; display: block; flex: none; }
+.footer .brand-mark { width: 28px; height: 28px; }
 .brand b { font-weight: 800; }
 .nav-links { display: flex; align-items: center; gap: 30px; }
 .nav-links a { color: var(--muted); font-size: 15px; font-weight: 500; transition: color .15s ease; }

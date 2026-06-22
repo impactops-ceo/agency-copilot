@@ -193,6 +193,8 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
   background: var(--grad);
   box-shadow: 0 6px 18px -6px rgba(47,140,255,0.8);
 }
+.brand-mark { width: 30px; height: 30px; display: block; flex: none; }
+.footer .brand-mark { width: 28px; height: 28px; }
 .brand b { font-weight: 800; }
 .nav-links { display: flex; align-items: center; gap: 30px; }
 .nav-links a { color: var(--muted); font-size: 15px; font-weight: 500; transition: color .15s ease; }
@@ -208,8 +210,22 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
 .hero-note { margin-top: 20px; font-size: 14px; color: var(--faint); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .hero-note .pill { color: var(--muted); }
-.hero-bridge { font-size: clamp(17px, 2.1vw, 21px); font-weight: 600; color: var(--muted); margin-top: 18px; }
-.hero-bridge .rotator { display: inline-block; transition: opacity .25s ease; font-weight: 700; }
+.hero-bridge { font-size: clamp(17px, 2.1vw, 21px); font-weight: 600; color: var(--muted); margin-top: 18px; display: flex; align-items: center; gap: 11px; flex-wrap: wrap; }
+.role-chip {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 8px 14px; border-radius: 12px;
+  background: var(--grad-soft);
+  border: 1px solid rgba(91,140,255,0.38);
+  box-shadow: 0 0 0 1px rgba(91,140,255,0.06), 0 14px 34px -16px rgba(47,140,255,0.65);
+  line-height: 1.15;
+}
+.role-chip .ai-spark { width: 16px; height: 16px; color: var(--cyan); flex: none; filter: drop-shadow(0 0 5px rgba(47,225,230,0.55)); }
+.role-chip .rotator {
+  display: inline-block; transition: opacity .25s ease; font-weight: 800;
+  background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.role-chip .caret { width: 2px; height: 1.05em; background: var(--cyan); border-radius: 1px; box-shadow: 0 0 6px var(--cyan); animation: blink 1.1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
 
 .pill {
   display: inline-flex; align-items: center; gap: 8px;
@@ -600,7 +616,19 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
 
   <header class="nav">
     <div class="wrap nav-inner">
-      <a class="brand" href="index.html"><span class="dot"></span>truth<b class="gradient-text">OS</b></a>
+      <a class="brand" href="index.html"><svg class="brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" role="img" aria-label="truthOS">
+  <defs>
+    <linearGradient id="tos-grad" x1="14" y1="12" x2="82" y2="84" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5b8cff"/>
+      <stop offset="1" stop-color="#2fe1e6"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#tos-grad)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="48" cy="58" r="24"/>
+    <path d="M48 12 V58"/>
+    <path d="M28 30 H68"/>
+  </g>
+</svg>truth<b class="gradient-text">OS</b></a>
       <nav class="nav-links">
         <a href="platform.html">The platform</a>
         <a href="who-its-for.html" class="active">Who it's for</a>
@@ -703,7 +731,19 @@ h3 { font-size: clamp(21px, 2.4vw, 26px); }
     <div class="wrap">
       <div class="footer-top">
         <div>
-          <a class="brand" href="index.html"><span class="dot"></span>truth<b class="gradient-text">OS</b></a>
+          <a class="brand" href="index.html"><svg class="brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" role="img" aria-label="truthOS">
+  <defs>
+    <linearGradient id="tos-grad" x1="14" y1="12" x2="82" y2="84" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5b8cff"/>
+      <stop offset="1" stop-color="#2fe1e6"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#tos-grad)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="48" cy="58" r="24"/>
+    <path d="M48 12 V58"/>
+    <path d="M28 30 H68"/>
+  </g>
+</svg>truth<b class="gradient-text">OS</b></a>
           <p class="blurb">truthOS enforces truth across your business, eliciting the flywheel of trust.</p>
         </div>
         <div><h5>Product</h5><ul><li><a href="platform.html">The platform</a></li><li><a href="platform.html#command-centers">Command centers</a></li><li><a href="platform.html#founder-ai">Founder AI</a></li><li><a href="pricing.html">Work with us</a></li></ul></div>
