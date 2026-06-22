@@ -375,6 +375,11 @@ a.role-chip:hover .cursor-ico { animation: none; transform: translate(1px, 1px);
 .cta-band { border: 1px solid var(--line); border-radius: var(--r-xl); background: radial-gradient(600px 300px at 50% 0%, rgba(47,140,255,0.18), transparent 70%), linear-gradient(180deg, var(--panel), var(--bg-1)); padding: 70px 40px; text-align: center; }
 .cta-band h2 { max-width: 18ch; margin: 0 auto 16px; }
 .cta-band p { color: var(--muted); max-width: 52ch; margin: 0 auto 30px; }
+.cta-band.invert { background: #ffffff; border-color: transparent; box-shadow: 0 34px 80px -36px rgba(0,0,0,0.7); }
+.cta-band.invert h2 { color: #0d1426; }
+.cta-band.invert p { color: #4b5468; }
+.cta-band.invert .eyebrow { color: #2f63e0; }
+.cta-band.invert .eyebrow::before { background: #2f63e0; }
 
 /* ---------- Forms ---------- */
 .form { border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--panel); padding: 32px; }
@@ -717,7 +722,7 @@ a.role-chip:hover .cursor-ico { animation: none; transform: translate(1px, 1px);
     <section class="section-sm">
       <div class="wrap">
         <div class="statement reveal invert">
-          <p>Make the product so good, growth is inevitable.</p>
+          <p>Make the <span style="color:var(--blue)">product</span> so good, <span style="color:var(--good)">growth</span> is inevitable.</p>
         </div>
       </div>
     </section>
@@ -919,7 +924,7 @@ a.role-chip:hover .cursor-ico { animation: none; transform: translate(1px, 1px);
     <!-- ===== FINAL CTA ===== -->
     <section class="section">
       <div class="wrap">
-        <div class="cta-band reveal">
+        <div class="cta-band reveal invert">
           <span class="eyebrow" style="justify-content:center">Get started</span>
           <h2>You won't scale what you don't trust.</h2>
           <p>Book a call and see the platform that enforces truth across your business, so the trust that grows it compounds.</p>
