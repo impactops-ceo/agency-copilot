@@ -14,17 +14,17 @@ piece.
 
 ## Owner
 
-- Name: _unknown_
-- Company: _unknown_
-- Onboarding started: _not yet_
-- Last updated: _never_
+- Name: Jordan Armstrong
+- Company: Impact Ops (product: truthOS)
+- Onboarding started: 2026-06-22 (seeded from the website rebuild, not a full interview)
+- Last updated: 2026-06-22
 
 ## Sections
 
 | # | Section | File | Status |
 |---|---------|------|--------|
-| 1 | Founder | `01-founder/CONTEXT.md` | not-started |
-| 2 | Company | `02-company/CONTEXT.md` | not-started |
+| 1 | Founder | `01-founder/CONTEXT.md` | in-progress |
+| 2 | Company | `02-company/CONTEXT.md` | in-progress |
 | 2a | Avatars | `02-company/avatars/CONTEXT.md` | not-started |
 | 3 | Acquisition | `03-acquisition/CONTEXT.md` | not-started |
 | 4 | Service Delivery | `04-service-delivery/CONTEXT.md` | not-started |
@@ -33,6 +33,13 @@ piece.
 
 ## Notes
 
-_Claude logs anything worth remembering between sessions here — e.g. "owner is
-uploading transcripts later," "skipping financials for now," "two avatars: agency
-owners + coaches."_
+- Founder + Company were seeded from the truthOS website rebuild (June 2026), not a
+  full onboarding interview. Several headings still say `— not yet answered —`
+  (years in business, location, the founder's deeper why, etc.) — worth completing.
+- **Master product knowledge lives in `02-company/truthos-knowledge.md`** — the
+  single source of truth for truthOS (thesis, avatars, platform, offer/partnerships,
+  proof, brand, writing rules, website). Read it before writing anything truthOS.
+- The marketing site is in `/website` (branch `claude/truthos-website-design-k6miqk`).
+- Another repo, `impactops-ceo/core-flow` (private), likely holds the canonical
+  product/positioning docs referenced in the original brief but absent here.
+- Pending confirmations before publishing proof numbers: see `truthos-knowledge.md` §7.

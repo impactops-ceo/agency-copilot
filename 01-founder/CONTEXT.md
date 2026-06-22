@@ -12,7 +12,9 @@ and reflects what you actually care about — not a generic agency voice.
 ## Name
 _What's your full name? What do you go by?_
 
-— not yet answered —
+**Jordan Armstrong.** Goes by Jordan. Founder of Impact Ops (the company behind
+truthOS). Email: jordan@impactops.io. Headshot on file at
+`website/assets/founder.jpg` (used on the truthOS site's partners section).
 
 ## Location
 _Where are you based? (City, country, time zone.)_
@@ -25,29 +27,34 @@ _How old are you? (Optional — helps calibrate voice and references.)_
 — not yet answered —
 
 ## Background
-_Where did you come from? Your career path, key turning points, what you did
-before this agency._
+_Where did you come from? Your career path, key turning points._
 
-— not yet answered —
+Ran operations for coaching, agency and expert businesses through Impact Ops, then
+built truthOS, the operating system those businesses needed. (More detail to add.)
 
 ## Your Why
 _Why do you run this business? What's the deeper reason underneath the money?_
 
-— not yet answered —
+— not yet answered — (working theme: enforce truth so businesses can be trusted, and
+free founders from being "a prison of other people's business.")
 
 ## Writing Style
-_How do you write? Tone, sentence length, words you use and avoid, formatting
-habits. **Best filled by example:** drop 3-5 real samples (emails, posts, docs)
-into `writing-samples/` and Claude will study them and summarize your voice here._
+_How do you write? Tone, sentence length, words you use and avoid._
 
-— not yet answered —
+Direct, plain, certain, founder to colleague. Short sentences. Concrete over abstract.
+Lead with the mechanism. No hype-stacking, no jargon. **Hard rules for anything
+written for truthOS:** always `truthOS` casing; **no em dashes** (use a period, a
+comma, or "and"); sentence-case headings. (Drop real samples into `writing-samples/`
+to refine this.)
 
 ## Speaking Style
-_How do you talk? Phrases you repeat, how you explain things, your rhythm on a
-call. **Best filled by example:** drop video or podcast transcripts into
-`speaking-transcripts/` and Claude will summarize your spoken voice here._
+_How do you talk? Phrases you repeat, your rhythm on a call._
 
-— not yet answered —
+Some signature lines from his own framing: "You won't scale what you don't trust."
+"Make the product so good, growth is inevitable." "A dashboard shows you the data, a
+command center lets you use AI to act on it." "You don't have to run a software
+company. We are the dev team." "Operational greatness is the moat." (Drop transcripts
+into `speaking-transcripts/` to refine.)
 
 ## Lifestyle
 _What does your day and week actually look like? How do you like to work?_
@@ -55,7 +62,6 @@ _What does your day and week actually look like? How do you like to work?_
 — not yet answered —
 
 ## What Matters Outside Business
-_What's important to you beyond the agency — family, faith, health, hobbies,
-commitments? What should the business serve rather than consume?_
+_What's important to you beyond the agency?_
 
 — not yet answered —
