@@ -108,13 +108,15 @@ After editing the source files, regenerate the self-contained `preview/` copies:
 ```bash
 cd website
 python3 - <<'PY'
-import re, glob, pathlib
+import glob, pathlib
 css = open('styles.css').read(); js = open('script.js').read()
+logo = open('assets/logo.svg').read().strip().replace('<svg ', '<svg class="brand-mark" ', 1)
 for f in glob.glob('*.html'):
     s = open(f).read()
-    s = re.sub(r'\s*<link[^>]*fonts\.(googleapis|gstatic)\.com[^>]*>', '', s)
+    # keep the Google Fonts <link> so the rounded fonts load via the render proxy
     s = s.replace('<link rel="stylesheet" href="styles.css" />', '<style>\n'+css+'\n</style>')
     s = s.replace('<script src="script.js"></script>', '<script>\n'+js+'\n</script>')
+    s = s.replace('<img src="assets/logo.svg" class="brand-mark" alt="" />', logo)
     pathlib.Path('preview', f).write_text(s)
 PY
 ```
